@@ -10,7 +10,7 @@ import { AuthenticatedActions } from '@auth/store/actions';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
-  title = 'admin';
+  title = 'ahmatuntiseuranta';
 
   constructor(private store: Store<AuthExtendedAppState>) {}
 

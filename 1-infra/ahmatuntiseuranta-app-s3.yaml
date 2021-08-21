@@ -1,0 +1,68 @@
+
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: S3 Bucket for ahma tuntiseuranta
+
+Parameters:
+  BucketName:
+    Type: String
+    Description: Bucket name used to create s3 bucket
+    MinLength: '1'
+    MaxLength: '25'
+
+Resources:
+  AppBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: Private
+      BucketName: !Ref BucketName
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: index.html
+      Tags:
+        - Key: Application
+          Value: !Ref 'AWS::StackName'
+        - Key: ApplicationName
+          Value: ahmatuntiseuranta
+
+
+  CloudFrontOAIahmatuntiseuranta:
+    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: Origin Access Identity for distribution of s3 bucket for ahmatuntiseuranta app
+
+
+  BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    DependsOn: AppBucket
+    Properties:
+      Bucket: !Ref 'AppBucket'
+      PolicyDocument:
+        Statement:
+          - Action:
+              - s3:GetObject
+            Effect: Allow
+            Resource: 
+                - !Sub "arn:aws:s3:::${AppBucket}/*"
+            Principal:
+              CanonicalUser: !GetAtt CloudFrontOAIahmatuntiseuranta.S3CanonicalUserId
+
+Outputs:
+  CloudFrontOAIahmatuntiseuranta:
+    Description: CloudFrontOAIahmatuntiseuranta
+    Value: !Ref CloudFrontOAIahmatuntiseuranta
+    Export:
+      Name: ahmatuntiseuranta-app-s3-cloudfront-oai
+
+  s3bucketName:
+    Description: s3 Bucket Name
+    Value: !Ref BucketName
+    Export:
+      Name: app-bucket-name-ahmatuntiseuranta
+
+  s3appDomainName:
+    Description: s3 Bucket Domain Name ahmatuntiseuranta
+    Value: !GetAtt AppBucket.DomainName
+    Export:
+      Name: app-bucket-domain-name-ahmatuntiseuranta
