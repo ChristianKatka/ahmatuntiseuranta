@@ -19,6 +19,12 @@ export class AppInitializationContainerComponent implements OnInit {
   constructor(private store: Store<ExtendedAppState>) {}
 
   ngOnInit() {
+    setTimeout(() => {
+      this.loadData();
+    }, 1000);
+  }
+
+  loadData() {
     this.store.dispatch(InitActions.loadApplicationStartData());
   }
 }

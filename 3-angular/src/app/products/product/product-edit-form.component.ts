@@ -53,13 +53,7 @@ export class ProductEditFormComponent implements OnChanges {
 
   saveEditForm() {
     if (this.product) {
-      // const unitedEditedProduct = {
-      //   ...this.product,
-      //   headLine: this.headLineFormControl.value,
-      //   description: this.descriptionFormControl.value,
-      //   price: this.product.price,
-      // };
-      // this.editedProduct.next(unitedEditedProduct);
+      this.editedProduct.next(this.productEditForm.value);
     }
   }
 }

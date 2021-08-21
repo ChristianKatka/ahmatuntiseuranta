@@ -35,6 +35,7 @@ import {
   AddProductContainerComponent,
   AddProductFormComponent,
 } from './add-product';
+import { FullCollectionContainerComponent } from './full-collection/full-collection.container';
 import { FullCollectionComponent } from './full-collection/full-collection.component';
 
 const components: any[] = [
@@ -49,7 +50,8 @@ const components: any[] = [
   AddProductContainerComponent,
   AddProductFormComponent,
   ProductEditFormComponent,
-  FullCollectionComponent
+  FullCollectionContainerComponent,
+  FullCollectionComponent,
 ];
 
 @NgModule({

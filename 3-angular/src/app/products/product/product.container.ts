@@ -46,7 +46,7 @@ export class ProductContainerComponent implements OnInit, OnDestroy {
     this.store.dispatch(ProductActions.stopEditing());
   }
 
-  editedProductSubmitted(product: Product) {
+  editedProductSubmitted(product: any) {
     this.store.dispatch(ProductActions.updateProduct({ product }));
   }
 

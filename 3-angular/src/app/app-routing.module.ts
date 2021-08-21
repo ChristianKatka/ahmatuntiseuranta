@@ -5,6 +5,7 @@ import { HomeContainerComponent } from './home/home.container';
 import { AppInitializationContainerComponent } from './app-initialization/app-initialization.container';
 import { ProductContainerComponent } from './products';
 import { AddProductContainerComponent } from './add-product';
+import { FullCollectionContainerComponent } from './full-collection/full-collection.container';
 
 const routes: Routes = [
   {
@@ -22,6 +23,12 @@ const routes: Routes = [
     canActivate: [AuthenticatedGuard],
     pathMatch: 'full',
     component: AppInitializationContainerComponent,
+  },
+  {
+    path: 'full-collection',
+    canActivate: [AuthenticatedGuard],
+    pathMatch: 'full',
+    component: FullCollectionContainerComponent,
   },
   {
     path: 'sales/:productId',

@@ -1,0 +1,47 @@
+@mixin heading {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 0;
+  padding-left: 1rem;
+  border-bottom: solid 1px rgb(0, 0, 0);
+}
+@mixin item {
+  border-bottom: solid 1px rgb(0, 0, 0);
+  font-weight: bold;
+  margin: 0;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+}
+
+section {
+  width: 90%;
+  border-radius: 4px;
+  background-color: white;
+
+  .items-wrapper {
+    padding: 1rem;
+  }
+}
+
+.heading {
+  @include heading;
+  border-bottom: solid 1px rgb(0, 0, 0);
+}
+
+.heading-last {
+  @include heading;
+}
+
+.item {
+  border-right: solid 1px rgb(0, 0, 0);
+  @include item;
+}
+
+.item-last {
+  @include item;
+}
+
+
+img {
+    width: 20rem;
+}

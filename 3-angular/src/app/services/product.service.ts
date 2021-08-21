@@ -18,7 +18,7 @@ export class ProductService {
     return this.authHttp.post(`${environment.apiBaseUrl}/products`, product);
   }
 
-  updateProduct(product: Product): Observable<Product> {
+  updateProduct(product: any): Observable<any> {
     return this.authHttp.put(
       `${environment.apiBaseUrl}/products/${product.id}`,
       product

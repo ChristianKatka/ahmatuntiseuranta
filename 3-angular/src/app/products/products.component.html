@@ -9,10 +9,12 @@
     <h1>Työmaat</h1>
 
     <section *ngIf="products" fxLayout="column" fxLayoutGap="20px">
-      <pre>{{ products | json }}</pre>
-
       <div *ngFor="let product of products" class="mat-elevation-z3 item-card">
-        <div class="inner-item" fxLayoutAlign="space-between center" [routerLink]="['/sales', product.id]">
+        <div
+          class="inner-item"
+          fxLayoutAlign="space-between center"
+          [routerLink]="['/sales', product.id]"
+        >
           <div>
             <p class="sub-heading">{{ product.companyName }}</p>
             <p class="sub-text">{{ product.address }}</p>
@@ -22,6 +24,5 @@
         </div>
       </div>
     </section>
-    
   </div>
 </main>

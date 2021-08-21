@@ -1,14 +1,11 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  Inject,
   Input,
   OnInit,
   Output,
   EventEmitter,
 } from '@angular/core';
-
-import { Product } from '../../../shared/models/product.model';
 
 @Component({
   selector: 'app-product',
@@ -18,7 +15,7 @@ import { Product } from '../../../shared/models/product.model';
 })
 export class ProductComponent implements OnInit {
   @Input()
-  product: Product | undefined | null;
+  product: any | undefined | null;
 
   @Output()
   deleteProductSubmitted: EventEmitter<string> = new EventEmitter();

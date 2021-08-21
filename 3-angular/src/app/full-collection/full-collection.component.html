@@ -1,0 +1,30 @@
+<main
+  [style.padding-top]="'70px'"
+  *ngIf="products"
+  fxLayoutAlign="center center"
+>
+  <section *ngIf="products">
+    <div class="items-wrapper">
+      <div fxLayoutAlign="center center">
+        <img src="../../assets/images/logo1.png" alt="Logo" />
+      </div>
+      <div class="headings" fxLayout="row">
+        <p fxFlex="33" class="heading">Työnantajan nimi</p>
+        <p fxFlex="33" class="heading">Työmaa osoite</p>
+        <p fxFlex="33" class="heading">Päivämäärä</p>
+        <p fxFlex="33" class="heading">kellon aika</p>
+        <p fxFlex="33" class="heading">Yhteishenkilön tiedot</p>
+        <p fxFlex="33" class="heading-last">Selite</p>
+      </div>
+
+      <div fxLayout="row" *ngFor="let product of products">
+        <p fxFlex="33" class="item">{{ product.companyContactInfo }}</p>
+        <p fxFlex="33" class="item">{{ product.address }}</p>
+        <p fxFlex="33" class="item">{{ product.date | date }}</p>
+        <p fxFlex="33" class="item">{{ product.time }}</p>
+        <p fxFlex="33" class="item">{{ product.companyName }}</p>
+        <p fxFlex="33" class="item-last">{{ product.description }}</p>
+      </div>
+    </div>
+  </section>
+</main>
