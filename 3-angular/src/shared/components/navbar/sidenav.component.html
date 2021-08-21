@@ -2,20 +2,20 @@
   <img src="../../../assets/images/logo1.png" alt="logo" />
   <section [style.width]="'95%'">
     <mat-nav-list fxLayout="column" fxLayoutGap="15px">
-      <a mat-list-item routerLink="/home" (click)="onClose()">
+      <a mat-list-item routerLink="/home">
         <mat-icon>home</mat-icon>
         <span class="nav-caption">Koti</span>
       </a>
-      <a mat-list-item routerLink="/add-product" (click)="onClose()">
-        <mat-icon>shop</mat-icon>
+      <a mat-list-item routerLink="/add-product">
+        <mat-icon>add</mat-icon>
         <span class="nav-caption">Lisää työmaa</span>
       </a>
-      <a mat-list-item routerLink="/full-collection" (click)="onClose()">
-        <mat-icon>mark_as_unread</mat-icon>
+      <a mat-list-item routerLink="/full-collection">
+        <mat-icon>engineering</mat-icon>
         <span class="nav-caption">näytä kaikki</span>
       </a>
-      <mat-list-item>
-        <button mat-icon-button (click)="onClose()">
+      <mat-list-item (click)="logOut()">
+        <button mat-icon-button>
           <mat-icon>logout</mat-icon>
           <span class="nav-caption">Kirjaudu ulos</span>
         </button>
