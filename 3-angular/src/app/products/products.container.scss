@@ -1,0 +1,9 @@
+main {
+  height: 100%;
+  background: rgb(229, 229, 229);
+  background: radial-gradient(
+    circle,
+    rgb(248, 205, 178) 0%,
+    rgb(233, 219, 210) 100%
+  );
+}

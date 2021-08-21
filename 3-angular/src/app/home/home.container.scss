@@ -1,0 +1,16 @@
+$color-primary-light: #c55d29;
+$color-primary-dark: #4b1c0d;
+
+main {
+  height: 100%;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.1),
+      rgba($color-primary-dark, 0.1)
+    ),
+    url("../../assets/images/background.jpg");
+  // crop picture from the center
+  background-position: center;
+  // fill image in the viewport
+  background-size: cover;
+}

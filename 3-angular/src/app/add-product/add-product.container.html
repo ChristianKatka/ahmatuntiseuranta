@@ -1,0 +1,5 @@
+<app-navigation>
+  <app-add-product 
+  [isLoading]="isLoading$ | async"
+  (addProductFormData)="addProduct($event)"></app-add-product>
+</app-navigation>

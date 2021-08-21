@@ -1,0 +1,26 @@
+.item-card {
+  width: 90%;
+  background-color: white;
+  border-radius: 6px;
+
+  .inner-item {
+    padding: 1rem;
+  }
+}
+
+.sub-heading {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 0;
+}
+.sub-text {
+  margin: 0;
+}
+
+.edit-button {
+  margin-top: 2rem;
+}
+
+.delete-button {
+  margin-left: 2rem;
+}

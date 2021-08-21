@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+  <div><a routerLink="/home">Admin</a></div>
+
+  <!-- making container flex and pushing elements to the right -->
+  <div fxFlex fxLayout="row" fxLayoutAlign="flex-end" fxHide.xs>
+    <ul fxLayout="row" fxLayoutGap="10px" class="navigation-items">
+      <li>
+        <a routerLink="/home">Home</a>
+      </li>
+      <li>
+        <a routerLink="/trains">Trains</a>
+      </li>
+      <li>
+        <a routerLink="/test">Test</a>
+      </li>
+      <li>
+        <a routerLink="/train">Train</a>
+      </li>
+      <li>
+        <a routerLink="/login">Login</a>
+      </li>
+      <li>
+        <a style="cursor: pointer">Logout</a>
+      </li>
+    </ul>
+  </div>
+
+  <div fxFlex fxLayout="row" fxLayoutAlign="flex-end" fxHide.gt-xs>
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>

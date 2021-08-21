@@ -1,0 +1,29 @@
+<main fxLayout="column" fxLayoutAlign="center center" [style.width]="'100%'">
+  <img src="../../../assets/images/logo1.png" alt="logo" />
+  <section [style.width]="'95%'">
+    <mat-nav-list fxLayout="column" fxLayoutGap="15px">
+      <a mat-list-item routerLink="/home" (click)="onClose()">
+        <mat-icon>home</mat-icon>
+        <span class="nav-caption">Koti</span>
+      </a>
+      <a mat-list-item routerLink="/add-product" (click)="onClose()">
+        <mat-icon>shop</mat-icon>
+        <span class="nav-caption">Lisää tuote</span>
+      </a>
+      <a mat-list-item routerLink="/test" (click)="onClose()">
+        <mat-icon>mark_as_unread</mat-icon>
+        <span class="nav-caption">Viestit</span>
+      </a>
+      <a mat-list-item routerLink="/train" (click)="onClose()">
+        <mat-icon>manage_accounts</mat-icon>
+        <span class="nav-caption">Tilin hallinta</span>
+      </a>
+      <mat-list-item>
+        <button mat-icon-button (click)="onClose()">
+          <mat-icon>logout</mat-icon>
+          <span class="nav-caption">Kirjaudu ulos</span>
+        </button>
+      </mat-list-item>
+    </mat-nav-list>
+  </section>
+</main>

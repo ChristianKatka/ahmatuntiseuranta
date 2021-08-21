@@ -1,0 +1,27 @@
+<main [style.width]="'100%'" fxLayoutAlign="center">
+  <div
+    fxLayout="column"
+    fxLayoutAlign="start"
+    [style.width]="'90%'"
+    fxLayoutGap="20px"
+    [style.margin-bottom.px]="100"
+  >
+    <h1>Työmaat</h1>
+
+    <section *ngIf="products" fxLayout="column" fxLayoutGap="20px">
+      <pre>{{ products | json }}</pre>
+
+      <div *ngFor="let product of products" class="mat-elevation-z3 item-card">
+        <div class="inner-item" fxLayoutAlign="space-between center" [routerLink]="['/sales', product.id]">
+          <div>
+            <p class="sub-heading">{{ product.companyName }}</p>
+            <p class="sub-text">{{ product.address }}</p>
+          </div>
+
+          <mat-icon>launch</mat-icon>
+        </div>
+      </div>
+    </section>
+    
+  </div>
+</main>

@@ -1,0 +1,38 @@
+<main [style.width]="'100%'" fxLayoutAlign="center">
+  <div class="mat-elevation-z3 item-card">
+    <div class="inner-item">
+      <p class="sub-heading">Työnantajan nimi</p>
+      <p class="sub-text">{{ product.companyName }}</p>
+      <br />
+      <p class="sub-heading">Työmaa osoite</p>
+      <p class="sub-text">{{ product.address }}</p>
+      <br />
+      <p class="sub-heading">Päivämäärä</p>
+      <p class="sub-text">{{ product.date | date }}</p>
+      <br />
+      <p class="sub-heading">kellon aika</p>
+      <p class="sub-text">{{ product.time }}</p>
+      <br />
+      <p class="sub-heading">Yhteishenkilön tiedot</p>
+      <p class="sub-text">{{ product.companyContactInfo }}</p>
+      <br />
+      <p class="sub-heading">Selite</p>
+      <p class="sub-text">{{ product.description }}</p>
+
+      <button
+        class="edit-button"
+        (click)="startEditing.emit()"
+        mat-raised-button
+      >
+        Muokkaa
+      </button>
+      <app-delete-product-dialog
+        class="delete-button"
+        [productId]="product.id"
+        (delete)="deleteProduct($event)"
+      ></app-delete-product-dialog>
+    </div>
+  </div>
+</main>
+
+<pre>{{ product | json }}</pre>

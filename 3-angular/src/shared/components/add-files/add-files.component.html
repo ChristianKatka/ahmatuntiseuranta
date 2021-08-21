@@ -1,0 +1,12 @@
+<div>
+  <label
+    class="file-upload mat-elevation-z9"
+    fxLayout="row"
+    fxLayoutAlign="center center"
+  >
+    <input appFileSelect type="file" (fileSelect)="onFileSelect($event)" />
+
+    <mat-icon color="primary">add_a_photo</mat-icon>
+    <ng-content></ng-content>
+  </label>
+</div>

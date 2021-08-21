@@ -1,0 +1,38 @@
+
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: DynamoDB table for ahmatuntiseuranta products
+
+Resources:
+  ProductsTable:
+    Type: 'AWS::DynamoDB::Table'
+    Properties:
+      AttributeDefinitions:
+        - AttributeName: 'id'
+          AttributeType: 'S'
+      KeySchema:
+        - AttributeName: 'id'
+          KeyType: 'HASH'
+      BillingMode: PAY_PER_REQUEST
+      TableName: 'ahmatuntiseuranta-products'
+      StreamSpecification:
+        StreamViewType: 'NEW_AND_OLD_IMAGES'
+      Tags:
+        - Key: Name
+          Value: 'ahmatuntiseuranta-products'
+        - Key: Application
+          Value: 'ahmatuntiseuranta'
+
+Outputs:
+  ProductsTableArn:
+    Description: products Table ARN
+    Value: !GetAtt ProductsTable.Arn
+    Export:
+      Name: ahmatuntiseuranta-products-table-arn
+
+  ProductsTableStreamArn:
+    Description: products Table stream ARN
+    Value: !GetAtt ProductsTable.StreamArn
+    Export:
+      Name: ahmatuntiseuranta-products-table-stream-arn
+

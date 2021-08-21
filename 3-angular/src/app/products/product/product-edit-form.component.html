@@ -1,0 +1,75 @@
+<main fxLayout="column" fxLayoutAlign="center center" [style.width]="'100%'">
+  <div [style.width]="'90%'" class="mat-elevation-z3 edit-product">
+    <div class="inner-item">
+      <section fxLayoutAlign="center center">
+        <form
+          fxLayout="column"
+          fxLayoutAlign="start"
+          fxLayoutGap="8px"
+          [formGroup]="productEditForm"
+        >
+          <mat-form-field appearance="outline">
+            <mat-label>Työnantajan nimi</mat-label>
+            <input matInput type="text" formControlName="companyName" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Osoite</mat-label>
+            <input matInput type="text" formControlName="address" />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Valitse päivämäärä</mat-label>
+            <input matInput [matDatepicker]="dp3" formControlName="date" />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="dp3"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>aika</mat-label>
+            <input matInput type="text" formControlName="time" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Yhteishenkilön tiedot</mat-label>
+            <textarea
+              matInput
+              cdkTextareaAutosize
+              #autosize="cdkTextareaAutosize"
+              cdkAutosizeMinRows="3"
+              cdkAutosizeMaxRows="8"
+              formControlName="companyContactInfo"
+            ></textarea>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Selostus</mat-label>
+            <textarea
+              matInput
+              cdkTextareaAutosize
+              #autosize="cdkTextareaAutosize"
+              cdkAutosizeMinRows="8"
+              cdkAutosizeMaxRows="15"
+              formControlName="description"
+            ></textarea>
+          </mat-form-field>
+          <button
+            mat-flat-button
+            color="primary"
+            type="submit"
+            (click)="this.saveEditForm()"
+          >
+            Tallenna
+          </button>
+
+          <button (click)="stopEditing.emit()" mat-raised-button>
+            Peruuta
+          </button>
+        </form>
+      </section>
+    </div>
+  </div>
+</main>

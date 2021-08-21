@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+
+mat-sidenav-container,
+mat-sidenav-content,
+mat-sidenav {
+  height: 100%;
+  background: radial-gradient(ellipse, #c55d29, #4b1c0d);
+  font-family: "Montserrat", sans-serif;
+}
+
+mat-sidenav {
+  width: 70%;
+}
