@@ -29,6 +29,8 @@ Resources:
           - ErrorCode: 403
             ResponseCode: 200
             ResponsePagePath: /index.html
+        Aliases:
+          - ahmappi.com
         DefaultCacheBehavior:
           CachedMethods:
             - GET
@@ -57,3 +59,20 @@ Resources:
           ViewerProtocolPolicy: redirect-to-https
         PriceClass: PriceClass_100
 
+        ViewerCertificate:
+          AcmCertificateArn: arn:aws:acm:eu-west-1:177244120069:certificate/0cd80264-bb3f-4f55-8f8c-a87d14465b7c
+          MinimumProtocolVersion: TLSv1.2_2018
+          SslSupportMethod: sni-only
+
+  DnsRecord:
+    Type: AWS::Route53::RecordSet
+    DependsOn: CloudfrontDistribution
+    Properties:
+      AliasTarget:
+        DNSName: !GetAtt CloudfrontDistribution.DomainName
+        # Constant value for CloudFront: Z2FDTNDATAQYW2
+        HostedZoneId: 'Z2FDTNDATAQYW2'
+      # route53 hosted zone id 
+      HostedZoneId: Z05467282WNO6D1YQMXJ1
+      Name: ahmappi.com
+      Type: A

@@ -1,10 +1,10 @@
 {
-  "name": "ahmatuntiseuranta",
-  "version": "0.0.0",
+  "name": "ahmappi",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -26,6 +26,7 @@
     "@angular/platform-browser": "~11.0.3",
     "@angular/platform-browser-dynamic": "~11.0.3",
     "@angular/router": "~11.0.3",
+    "@angular/service-worker": "~11.0.3",
     "@ngrx/effects": "^11.0.1",
     "@ngrx/router-store": "^11.0.1",
     "@ngrx/store": "^11.0.1",

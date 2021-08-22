@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ahmatuntiseuranta": {
+    "ahmappi": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -26,7 +26,7 @@
               "buffer",
               "isomorphic-unfetch"
             ],
-            "outputPath": "dist/ahmatuntiseuranta",
+            "outputPath": "dist/ahmappi",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -34,13 +34,16 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
-            "scripts": ["src/assets/lib/aws-sdk-2.656.0.min.js"]
+            "scripts": ["src/assets/lib/aws-sdk-2.656.0.min.js"],
+            "serviceWorker": true,
+            "ngswConfigPath": "ngsw-config.json"
           },
           "configurations": {
             "production": {
@@ -60,8 +63,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "4mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -75,18 +78,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ahmatuntiseuranta:build"
+            "browserTarget": "ahmappi:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ahmatuntiseuranta:build:production"
+              "browserTarget": "ahmappi:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ahmatuntiseuranta:build"
+            "browserTarget": "ahmappi:build"
           }
         },
         "test": {
@@ -98,7 +101,8 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
@@ -124,18 +128,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ahmatuntiseuranta:serve"
+            "devServerTarget": "ahmappi:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ahmatuntiseuranta:serve:production"
+              "devServerTarget": "ahmappi:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "ahmatuntiseuranta",
+  "defaultProject": "ahmappi",
   "cli": {
     "analytics": false
   }

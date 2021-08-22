@@ -40,6 +40,7 @@ import { FullCollectionContainerComponent } from './full-collection/full-collect
 import { FullCollectionComponent } from './full-collection/full-collection.component';
 import { AddJobBottomSheetContainerComponent } from './products/product/add-job-bottom-sheet/add-job-bottom-sheet.container';
 import { AddJobFormComponent } from './products/product/add-job-bottom-sheet/add-job-form.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 const components: any[] = [
   AppComponent,
@@ -79,6 +80,12 @@ const components: any[] = [
     EffectsModule.forRoot(effects),
     SharedModule,
     AuthModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [AuthHTTPService],
   bootstrap: [AppComponent],

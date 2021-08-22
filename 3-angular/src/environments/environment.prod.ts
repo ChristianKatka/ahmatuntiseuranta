@@ -1,13 +1,13 @@
 export const environment = {
   production: true,
-  apiBase: 'https://axizdke9fj.execute-api.eu-west-1.amazonaws.com',
+  apiBaseUrl: 'https://axizdke9fj.execute-api.eu-west-1.amazonaws.com',
   cognito: {
-    identityPoolId: 'eu-west-1:5cd563bc-a12b-42ff-bbdb-42c0e6bf35b1',
+    identityPoolId: 'eu-west-1:6f418526-d8ad-4597-a76a-01984549e644',
     region: 'eu-west-1',
     poolData: {
       /* eslint-disable */
-      UserPoolId: 'eu-west-1_R9FHf3Ugm',
-      ClientId: '4q9j9520sf4sqmibfl28c2lic6',
+      UserPoolId: 'eu-west-1_FPJtRIwcZ',
+      ClientId: '30ebi356l0n4pdu4crpgj09ts5',
       /* eslint-enable */
     },
     mandatorySignIn: true,
