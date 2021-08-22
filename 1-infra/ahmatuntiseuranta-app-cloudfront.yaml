@@ -60,7 +60,7 @@ Resources:
         PriceClass: PriceClass_100
 
         ViewerCertificate:
-          AcmCertificateArn: arn:aws:acm:eu-west-1:177244120069:certificate/0cd80264-bb3f-4f55-8f8c-a87d14465b7c
+          AcmCertificateArn: arn:aws:acm:us-east-1:177244120069:certificate/4a5213a3-040a-4019-9750-5626de57e7bc
           MinimumProtocolVersion: TLSv1.2_2018
           SslSupportMethod: sni-only
 
