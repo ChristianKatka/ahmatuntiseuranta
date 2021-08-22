@@ -14,23 +14,6 @@
   </mat-form-field>
 
   <mat-form-field appearance="fill">
-    <mat-label>Valitse päivämäärä</mat-label>
-    <input matInput [matDatepicker]="dp3" formControlName="date" />
-    <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
-    <mat-datepicker #dp3 disabled="false"></mat-datepicker>
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
-    <mat-label>Aika</mat-label>
-    <input matInput type="text" formControlName="time" />
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
-    <mat-label>Työaika</mat-label>
-    <input matInput type="text" formControlName="hoursUsed" />
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
     <mat-label>Tilanne</mat-label>
     <select matNativeControl formControlName="phase">
       <option value="" selected></option>
@@ -53,7 +36,7 @@
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>Selostus</mat-label>
+    <mat-label>Yleis tieto työmaasta</mat-label>
     <textarea
       matInput
       cdkTextareaAutosize

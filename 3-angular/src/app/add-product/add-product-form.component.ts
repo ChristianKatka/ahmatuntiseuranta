@@ -30,9 +30,6 @@ export class AddProductFormComponent implements OnInit {
   addProductForm: FormGroup = new FormGroup({
     companyName: new FormControl(),
     address: new FormControl(),
-    date: new FormControl(),
-    time: new FormControl(),
-    hoursUsed: new FormControl(),
     phase: new FormControl(),
     companyContactInfo: new FormControl(),
     description: new FormControl(),
