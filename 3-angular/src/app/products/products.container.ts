@@ -10,11 +10,16 @@ import { Store } from '@ngrx/store';
   templateUrl: './products.container.html',
   styleUrls: ['./products.container.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-
 })
 export class ProductsContainerComponent implements OnInit {
   products$ = this.store.select(ProductSelectors.getProductEntities);
 
   constructor(private store: Store<AppState>) {}
   ngOnInit(): void {}
+
+  selectedProductFilter(
+    productFilter: 'showAll' | 'notStarted' | 'inProgress' | 'ended'
+  ) {
+    this.store.dispatch(ProductActions.changeProductFilter({ productFilter }));
+  }
 }

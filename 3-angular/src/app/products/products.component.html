@@ -6,7 +6,27 @@
     fxLayoutGap="20px"
     [style.margin-bottom.px]="100"
   >
-    <h1>Työmaat</h1>
+    <div fxLayoutAlign="space-between">
+      <h1>Työmaat</h1>
+      <button
+        class="mat-elevation-z3 filter-button"
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+      >
+        <mat-icon>filter_list</mat-icon>
+      </button>
+
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="filterShowAllProducts()">Kaikki</button>
+        <button mat-menu-item (click)="filterNotStarted()">
+          Ei vielä alkaneet
+        </button>
+        <button mat-menu-item (click)="filterInProgress()">
+          Käynnissä olevat
+        </button>
+        <button mat-menu-item (click)="filterEnded()">Loppuneet</button>
+      </mat-menu>
+    </div>
 
     <section *ngIf="products" fxLayout="column" fxLayoutGap="20px">
       <div *ngFor="let product of products" class="mat-elevation-z3 item-card">
@@ -20,7 +40,24 @@
             <p class="sub-text">{{ product.address }}</p>
           </div>
 
-          <mat-icon>launch</mat-icon>
+          <div
+            *ngIf="product.phase === 'notStarted'"
+            fxLayoutAlign="center center"
+          >
+            <span class="not-started">Ei alkanut</span>
+            <mat-icon class="not-started-icon">hourglass_top</mat-icon>
+          </div>
+          <div
+            *ngIf="product.phase === 'inProgress'"
+            fxLayoutAlign="center center"
+          >
+            <span class="in-progress">käynnissä</span>
+            <mat-icon class="in-progress-icon">published_with_changes</mat-icon>
+          </div>
+          <div *ngIf="product.phase === 'ended'" fxLayoutAlign="center center">
+            <span class="ended">Loppunut</span>
+            <mat-icon class="ended-icon">not_interested</mat-icon>
+          </div>
         </div>
       </div>
     </section>

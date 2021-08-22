@@ -15,21 +15,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddProductFormComponent implements OnInit {
-
-
-
-// TyömaaKOHTAINEN KAAVAKE
-
-
-// Työnantajan nimi
-// työmaa osoite
-// Päivämäärä
-// kellon aika
-// Mestarin / yhteishenkilön tiedot
-// Mitä tehty ELi selite
-// 
-
-
+  phases = [
+    { value: 'notStarted', viewValue: 'Ei alkanut' },
+    { value: 'inProgress', viewValue: 'Käynnissä' },
+    { value: 'ended', viewValue: 'Päättynyt' },
+  ];
 
   @Input()
   isLoading: boolean | undefined | null;
@@ -42,13 +32,15 @@ export class AddProductFormComponent implements OnInit {
     address: new FormControl(),
     date: new FormControl(),
     time: new FormControl(),
+    hoursUsed: new FormControl(),
+    phase: new FormControl(),
     companyContactInfo: new FormControl(),
     description: new FormControl(),
   });
 
   submit(): void {
     console.log(this.addProductForm.value);
-    
+
     this.addProductFormSubmit.emit(this.addProductForm.value);
   }
 

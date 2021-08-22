@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { AuthHTTPService } from './services/auth-http.service';
 import { StoreModule } from '@ngrx/store';
 import { StoreRouterConnectingModule, RouterState } from '@ngrx/router-store';
@@ -37,6 +38,8 @@ import {
 } from './add-product';
 import { FullCollectionContainerComponent } from './full-collection/full-collection.container';
 import { FullCollectionComponent } from './full-collection/full-collection.component';
+import { AddJobBottomSheetContainerComponent } from './products/product/add-job-bottom-sheet/add-job-bottom-sheet.container';
+import { AddJobFormComponent } from './products/product/add-job-bottom-sheet/add-job-form.component';
 
 const components: any[] = [
   AppComponent,
@@ -52,6 +55,8 @@ const components: any[] = [
   ProductEditFormComponent,
   FullCollectionContainerComponent,
   FullCollectionComponent,
+  AddJobBottomSheetContainerComponent,
+  AddJobFormComponent
 ];
 
 @NgModule({
@@ -63,6 +68,7 @@ const components: any[] = [
     FlexLayoutModule,
     MaterialModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     StoreModule.forRoot(reducers),
     StoreRouterConnectingModule.forRoot({

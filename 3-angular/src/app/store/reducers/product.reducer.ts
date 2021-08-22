@@ -6,6 +6,7 @@ import { ProductActions } from '../actions';
 export interface ProductState {
   entities: { [id: string]: any };
   selectedProductId: string | undefined;
+  filter: 'showAll' | 'notStarted' | 'inProgress' | 'ended';
   editing: boolean;
   loading: boolean;
 }
@@ -13,6 +14,7 @@ export interface ProductState {
 export const initialState: ProductState = {
   entities: {},
   selectedProductId: undefined,
+  filter: 'showAll',
   editing: false,
   loading: false,
 };
@@ -61,6 +63,11 @@ const productReducer = createReducer(
     ...state,
     selectedProductId: productId,
   })),
+  on(ProductActions.changeProductFilter, (state, { productFilter }) => ({
+    ...state,
+    filter: productFilter,
+  })),
+
   on(ProductActions.clearProductSelection, (state) => ({
     ...state,
     selectedProductId: undefined,

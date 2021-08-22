@@ -69,3 +69,9 @@ export const deleteProductFailure = createAction(
   '[Product] Delete Product Failure',
   props<{ error: string }>()
 );
+
+// FILTER
+export const changeProductFilter = createAction(
+  '[Product] Change Product Filter',
+  props<{ productFilter: 'showAll' | 'notStarted' | 'inProgress' | 'ended' }>()
+);

@@ -1,3 +1,6 @@
 <main [style.padding-top]="'70px'">
-  <app-products [products]="products$ | async"></app-products>
+  <app-products
+    [products]="products$ | async"
+    (selectedProductFilter)="selectedProductFilter($event)"
+  ></app-products>
 </main>

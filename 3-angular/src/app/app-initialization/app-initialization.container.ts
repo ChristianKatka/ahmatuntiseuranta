@@ -21,7 +21,7 @@ export class AppInitializationContainerComponent implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       this.loadData();
-    }, 1000);
+    }, 400);
   }
 
   loadData() {

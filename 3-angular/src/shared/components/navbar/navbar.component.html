@@ -1,27 +1,25 @@
-<mat-toolbar color="primary">
-  <div><a routerLink="/home">Ahmalattiat</a></div>
+<mat-toolbar color="primary" fxLayoutAlign="space-between center">
+  <button fxHide.gt-xs mat-icon-button routerLink="/add-product">
+    <mat-icon>add_circle_outline</mat-icon>
+  </button>
 
-  <!-- making container flex and pushing elements to the right -->
-  <div fxFlex fxLayout="row" fxLayoutAlign="flex-end" fxHide.xs>
-    <ul fxLayout="row" fxLayoutGap="10px" class="navigation-items">
-      <li>
-        <a routerLink="/home">Koti</a>
-      </li>
-      <li>
-        <a routerLink="/full-collection">Näytä kaikki</a>
-      </li>
-      <li>
-        <a routerLink="/add-product">Lisää työmaa</a>
-      </li>
-      <li>
-        <a style="cursor: pointer" (click)="logOut()">Kirjaudu ulos</a>
-      </li>
-    </ul>
-  </div>
+  <app-logo routerLink="/home" size="smaller"></app-logo>
+  <ul fxLayout="row" fxLayoutGap="10px" class="navigation-items" fxHide.xs>
+    <li>
+      <a routerLink="/home">Koti</a>
+    </li>
+    <li>
+      <a routerLink="/full-collection">Näytä kaikki</a>
+    </li>
+    <li>
+      <a routerLink="/add-product">Lisää työmaa</a>
+    </li>
+    <li>
+      <a style="cursor: pointer" (click)="logOut()">Kirjaudu ulos</a>
+    </li>
+  </ul>
 
-  <div fxFlex fxLayout="row" fxLayoutAlign="flex-end" fxHide.gt-xs>
-    <button mat-icon-button (click)="onToggleSidenav()">
-      <mat-icon>menu</mat-icon>
-    </button>
-  </div>
+  <button fxHide.gt-xs mat-icon-button (click)="onToggleSidenav()">
+    <mat-icon>menu</mat-icon>
+  </button>
 </mat-toolbar>

@@ -1,0 +1,21 @@
+<header [style.width]="'100%'">
+  <div [style.width]="'100%'" fxLayout="row" fxLayoutAlign="center center">
+    <button
+      mat-icon-button
+      aria-label="Close"
+      (click)="close()"
+      class="top-button"
+    >
+      <mat-icon>maximize</mat-icon>
+    </button>
+  </div>
+  <p>Lisää tehty työ</p>
+</header>
+
+<main>
+  <app-add-job-form></app-add-job-form>
+
+  <div [style.width]="'100%'" fxLayout="row" fxLayoutAlign="center center">
+    <a (click)="close()" class="cancel-button">Peruuta</a>
+  </div>
+</main>

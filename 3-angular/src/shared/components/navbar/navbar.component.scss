@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Jura&family=Source+Sans+Pro:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Jura&family=Source+Sans+Pro:wght@300&display=swap');
 
 .navigation-items {
   list-style: none;
@@ -7,15 +7,15 @@
 }
 
 mat-toolbar.mat-primary {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.7);
   margin: 0 auto;
 }
 
 a {
   text-decoration: none;
   color: white;
-  font-family: "Jura", sans-serif;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Jura', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 a:hover {
