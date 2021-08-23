@@ -10,6 +10,16 @@ export const getSelectedProductFilter = createSelector(
   (state) => state.filter
 );
 
+export const getIsEditing = createSelector(
+  getProductState,
+  (state) => state.editing
+);
+
+export const getSelectedProductId = createSelector(
+  getProductState,
+  (state) => state.selectedProductId
+);
+
 export const getProductEntities = createSelector(
   getProductState,
   getSelectedProductFilter,
@@ -27,10 +37,7 @@ export const getProductEntities = createSelector(
   }
 );
 
-export const getIsEditing = createSelector(
-  getProductState,
-  (state) => state.editing
-);
+
 
 export const getSelectedProductEntity = createSelector(
   getProductState,

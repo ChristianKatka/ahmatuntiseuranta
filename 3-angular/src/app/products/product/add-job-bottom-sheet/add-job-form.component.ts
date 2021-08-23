@@ -29,8 +29,7 @@ export class AddJobFormComponent implements OnInit {
   });
 
   submit(): void {
-    // console.log(this.addProductForm.value);
-    // this.addProductFormSubmit.emit(this.addProductForm.value);
+    this.addJobFormSubmit.emit(this.addJobForm.value);
   }
 
   ngOnInit() {}

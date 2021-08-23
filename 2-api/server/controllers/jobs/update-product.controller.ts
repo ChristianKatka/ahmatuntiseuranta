@@ -1,12 +1,12 @@
 import { Context, Next } from 'koa';
 import { docClient } from '../../aws';
-import { PRODUCTS_TABLE } from '../../constants';
+import { JOBS_TABLE } from '../../constants';
 
-export const updateProduct = async (ctx: Context, next: Next) => {
-  const id = ctx.params.productId;
+export const updateJob = async (ctx: Context, next: Next) => {
+  const id = ctx.params.jobId;
 
   const params = {
-    TableName: PRODUCTS_TABLE,
+    TableName: JOBS_TABLE,
     Key: { id },
     UpdateExpression:
       'SET #headLine = :headLine, #description = :description, #price = :price, #isPublic = :isPublic',
@@ -25,7 +25,7 @@ export const updateProduct = async (ctx: Context, next: Next) => {
     ReturnValues: 'ALL_NEW',
   };
 
-  const product = await docClient
+  const job = await docClient
     .update(params)
     .promise()
     .then((res) => res.Attributes)
@@ -35,7 +35,7 @@ export const updateProduct = async (ctx: Context, next: Next) => {
     });
 
   ctx.status = 200;
-  ctx.body = product;
+  ctx.body = job;
 
   next();
 };

@@ -21,4 +21,6 @@ export const deleteProduct = async (ctx: Context, next: Next) => {
       ctx.status = 500;
       console.log(err);
     });
+
+    next();
 };

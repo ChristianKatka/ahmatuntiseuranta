@@ -16,4 +16,6 @@ export const getAllProducts = async (ctx: Context, next: Next) => {
 
   ctx.status = 200;
   ctx.body = products;
+
+  next();
 };

@@ -11,7 +11,8 @@ Resources:
       Auth:
       CorsConfiguration:
         AllowOrigins:
-          - "*"
+          - "http://localhost:4200"
+          - "https://ahmappi.com"
         AllowHeaders:
           - "*"
         AllowMethods:
@@ -23,6 +24,12 @@ Resources:
       DefaultRouteSettings:
         ThrottlingBurstLimit: 2
         ThrottlingRateLimit: 2
+      # Domain:
+      #   DomainName: api.ahmappi.com
+      #   CertificateArn: arn:aws:acm:us-east-1:177244120069:certificate/4a5213a3-040a-4019-9750-5626de57e7bc
+      #   EndpointConfiguration: REGIONAL
+      #   Route53:
+      #     HostedZoneId: Z05467282WNO6D1YQMXJ1
   LambdaExecutionRole:
     Type: AWS::IAM::Role
     Properties:

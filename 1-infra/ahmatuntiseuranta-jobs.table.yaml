@@ -1,0 +1,38 @@
+
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: DynamoDB table for ahmatuntiseuranta jobs
+
+Resources:
+  JobsTable:
+    Type: 'AWS::DynamoDB::Table'
+    Properties:
+      AttributeDefinitions:
+        - AttributeName: 'id'
+          AttributeType: 'S'
+      KeySchema:
+        - AttributeName: 'id'
+          KeyType: 'HASH'
+      BillingMode: PAY_PER_REQUEST
+      TableName: 'ahmatuntiseuranta-jobs'
+      StreamSpecification:
+        StreamViewType: 'NEW_AND_OLD_IMAGES'
+      Tags:
+        - Key: Name
+          Value: 'ahmatuntiseuranta-jobs'
+        - Key: Application
+          Value: 'ahmatuntiseuranta'
+
+Outputs:
+  JobsTableArn:
+    Description: jobs Table ARN
+    Value: !GetAtt JobsTable.Arn
+    Export:
+      Name: ahmatuntiseuranta-jobs-table-arn
+
+  JobsTableStreamArn:
+    Description: Jobs Table stream ARN
+    Value: !GetAtt JobsTable.StreamArn
+    Export:
+      Name: ahmatuntiseuranta-jobs-table-stream-arn
+

@@ -21,4 +21,6 @@ export const createProduct = async (ctx: Context, next: Next) => {
 
   ctx.status = 200;
   ctx.body = product
+
+  next();
 };

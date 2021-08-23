@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { JobActions } from '@app/store/actions';
 import { AppState } from '@app/store/reducers';
 import { Store } from '@ngrx/store';
 
@@ -17,5 +18,10 @@ export class AddJobBottomSheetContainerComponent implements OnInit {
 
   close() {
     this.bottomSheetRef.dismiss();
+  }
+
+  addJobToProduct(job: any) {
+    this.store.dispatch(JobActions.createJob({ job }));
+    this.close();
   }
 }

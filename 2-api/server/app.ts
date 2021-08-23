@@ -5,6 +5,7 @@ import cors from "@koa/cors";
 import { logRequestAndResponse } from "./middlewares/request-response-logger.middleware";
 import { decodeCognitoToken } from "./middlewares/cognito-token.middleware";
 import { productsRouter } from "./routers/products.router";
+import { jobsRouter } from './routers/jobs.router';
 const app = new Koa();
 
 app.use(json());
@@ -18,6 +19,8 @@ app.use(logRequestAndResponse);
 //   });
 
 app.use(productsRouter.routes()).use(productsRouter.allowedMethods());
+app.use(jobsRouter.routes()).use(jobsRouter.allowedMethods());
+
 
 
 export { app };
