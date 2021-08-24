@@ -23,25 +23,29 @@ section {
   }
 }
 
-.heading {
-  @include heading;
-  border-bottom: solid 1px rgb(0, 0, 0);
-}
+// .heading {
+//   @include heading;
+//   border-bottom: solid 1px rgb(0, 0, 0);
+// }
 
-.heading-last {
-  @include heading;
-}
+// .heading-last {
+//   @include heading;
+// }
 
-.item {
-  border-right: solid 1px rgb(0, 0, 0);
-  @include item;
-}
+// .item {
+//   border-right: solid 1px rgb(0, 0, 0);
+//   @include item;
+// }
 
-.item-last {
-  @include item;
-}
-
+// .item-last {
+//   @include item;
+// }
 
 img {
-    width: 20rem;
+  width: 20rem;
+}
+
+mat-grid-tile {
+  // background: lightblue;
+  border: 1px solid black;
 }

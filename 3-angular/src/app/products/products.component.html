@@ -29,7 +29,11 @@
     </div>
 
     <section *ngIf="products" fxLayout="column" fxLayoutGap="20px">
-      <div *ngFor="let product of products" class="mat-elevation-z3 item-card">
+      <div
+        *ngFor="let product of products; let last = last"
+        [ngClass]="{ 'last-child': last }"
+        class="mat-elevation-z3 item-card"
+      >
         <div
           class="inner-item"
           fxLayoutAlign="space-between center"
@@ -38,6 +42,7 @@
           <div>
             <p class="sub-heading">{{ product.companyName }}</p>
             <p class="sub-text">{{ product.address }}</p>
+            <p class="sub-text">Töiden lukumäärä: {{ product.amountOfJobs }}</p>
           </div>
 
           <div

@@ -19,18 +19,23 @@
       <p class="sub-heading">Selite</p>
       <p class="sub-text">{{ product.description }}</p>
 
-      <button
-        class="edit-button"
-        (click)="startEditing.emit()"
-        mat-raised-button
-      >
-        Muokkaa
-      </button>
-      <app-delete-product-dialog
-        class="delete-button"
-        [productId]="product.id"
-        (delete)="deleteProduct($event)"
-      ></app-delete-product-dialog>
+      <div class="buttons-wrapper" fxLayoutAlign="space-between center">
+        <button mat-raised-button (click)="startFullScreenProductMode.emit()">Avaa isona</button>
+        <div>
+          <button
+            class="edit-button"
+            (click)="startEditing.emit()"
+            mat-raised-button
+          >
+            Muokkaa
+          </button>
+          <app-delete-product-dialog
+            class="delete-button"
+            [productId]="product.id"
+            (delete)="deleteProduct($event)"
+          ></app-delete-product-dialog>
+        </div>
+      </div>
     </div>
   </div>
 </main>

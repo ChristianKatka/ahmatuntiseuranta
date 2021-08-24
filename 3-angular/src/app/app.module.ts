@@ -36,8 +36,6 @@ import {
   AddProductContainerComponent,
   AddProductFormComponent,
 } from './add-product';
-import { FullCollectionContainerComponent } from './full-collection/full-collection.container';
-import { FullCollectionComponent } from './full-collection/full-collection.component';
 import { AddJobBottomSheetContainerComponent } from './products/product/add-job-bottom-sheet/add-job-bottom-sheet.container';
 import { AddJobFormComponent } from './products/product/add-job-bottom-sheet/add-job-form.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -46,6 +44,7 @@ import { ListJobsComponent } from './products/product/list-jobs/list-jobs.compon
 import { JobBottomSheetContainerComponent } from './products/product/job-bottom-sheet/job-bottom-sheet.container';
 import { JobComponent } from './products/product/job-bottom-sheet/job.component';
 import { JobEditFormComponent } from './products/product/job-bottom-sheet/job-edit-form.component';
+import { FullScreenProductContainerComponent } from './products/product/full-screen-product/full-screen-product.container';
 
 const components: any[] = [
   AppComponent,
@@ -59,15 +58,14 @@ const components: any[] = [
   AddProductContainerComponent,
   AddProductFormComponent,
   ProductEditFormComponent,
-  FullCollectionContainerComponent,
-  FullCollectionComponent,
   AddJobBottomSheetContainerComponent,
   AddJobFormComponent,
   ListJobsContainerComponent,
   ListJobsComponent,
   JobBottomSheetContainerComponent,
   JobComponent,
-  JobEditFormComponent
+  JobEditFormComponent,
+  FullScreenProductContainerComponent
 ];
 
 @NgModule({
@@ -91,7 +89,7 @@ const components: any[] = [
     SharedModule,
     AuthModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production,
+      enabled: true,
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000',

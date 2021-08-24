@@ -1,8 +1,7 @@
 import { createSelector } from '@ngrx/store';
 import { getJobState } from '../reducers';
-import { getSelectedProductId } from './product.selectors';
 
-export const getAllJobs = createSelector(getJobState, (state) =>
+export const getJobs = createSelector(getJobState, (state) =>
   Object.values(state.entities)
 );
 export const getSelectedJobId = createSelector(
@@ -15,14 +14,8 @@ export const getIsEditing = createSelector(
   (state) => state.editing
 );
 
-export const getSelectedProductJobs = createSelector(
-  getSelectedProductId,
-  getAllJobs,
-  (productId, jobs) => jobs.filter((job) => job.productId === productId)
-);
-
 export const getSelectedJob = createSelector(
   getSelectedJobId,
-  getAllJobs,
+  getJobs,
   (jobId, jobs) => jobs.filter((job) => job.id === jobId)[0]
 );

@@ -1,5 +1,8 @@
 <app-navigation>
-  <main [style.padding-top]="'70px'">
+  <main
+    [style.padding-top]="'70px'"
+    *ngIf="(fullScreenProductMode$ | async)  === false; else fullScreenProductComponent"
+  >
     <div fxLayoutAlign="center center">
       <div [style.width]="'90%'">
         <h1>Työmaa</h1>
@@ -11,11 +14,10 @@
         (deleteProductSubmitted)="deleteProduct($event)"
         (startEditing)="startEditing()"
         (openBottomSheetAddJobToProduct)="onOpenBottomSheetAddJobToProduct()"
+        (startFullScreenProductMode)="onStartFullScreenProductMode()"
       ></app-product>
 
-
       <app-list-jobs-container></app-list-jobs-container>
-
     </div>
 
     <ng-template #editingComponent>
@@ -26,4 +28,9 @@
       ></app-product-edit-form>
     </ng-template>
   </main>
+
+  <ng-template #fullScreenProductComponent>
+    <app-full-screen-product-container (stopFullScreenProductMode)="onStopFullScreenProductMode()"></app-full-screen-product-container>
+  </ng-template>
+  
 </app-navigation>

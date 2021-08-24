@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Product } from '../../shared/models/product.model';
 import { AppState } from '../store/reducers';
 import { ProductActions } from '../store/actions';
-import { ProductSelectors } from '../store/selectors';
+import { JobSelectors, ProductSelectors } from '../store/selectors';
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -13,7 +13,7 @@ import { Store } from '@ngrx/store';
 })
 export class ProductsContainerComponent implements OnInit {
   products$ = this.store.select(ProductSelectors.getProductEntities);
-
+  
   constructor(private store: Store<AppState>) {}
   ngOnInit(): void {}
 

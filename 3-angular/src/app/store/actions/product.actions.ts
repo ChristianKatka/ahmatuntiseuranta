@@ -31,6 +31,15 @@ export const startEditing = createAction('[Product] Start Editing');
 // STOP EDITING
 export const stopEditing = createAction('[Product] Stop Editing');
 
+// Start full screen product mode
+export const startFullScreenProductMode = createAction(
+  '[Product] Start Full Screen Product Mode'
+);
+// Stop full screen product mode
+export const stopFullScreenProductMode = createAction(
+  '[Product] Stop Full Screen Product Mode'
+);
+
 // UPDATE
 export const updateProduct = createAction(
   '[Product] Update Product',

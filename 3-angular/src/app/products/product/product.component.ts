@@ -24,6 +24,9 @@ export class ProductComponent implements OnInit {
   startEditing = new EventEmitter();
 
   @Output()
+  startFullScreenProductMode = new EventEmitter();
+
+  @Output()
   openBottomSheetAddJobToProduct = new EventEmitter();
 
   constructor() {}

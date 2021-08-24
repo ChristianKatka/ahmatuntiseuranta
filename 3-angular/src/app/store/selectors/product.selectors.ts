@@ -1,5 +1,29 @@
 import { createSelector } from '@ngrx/store';
 import { getProductState } from '../reducers';
+import { getJobs } from './job.selectors';
+
+const getAmountOfJobsInsideEveryProduct = (products: any[], jobs: any[]) =>
+  products.map((product: any) => {
+    const amountOfJobs = jobs.filter((job) => job.productId === product.id);
+    return { ...product, amountOfJobs: amountOfJobs.length };
+  });
+
+const sortByCreatedDate = (arrayToSort: any[]) =>
+  arrayToSort.sort((n1, n2) => {
+    if (n1.createdAt > n2.createdAt) {
+      return -1;
+    }
+
+    if (n1.createdAt < n2.createdAt) {
+      return 1;
+    }
+
+    return 0;
+  });
+
+export const getProducts = createSelector(getProductState, (state) =>
+  Object.values(state.entities)
+);
 
 export const getIsLoading = createSelector(
   getProductState,
@@ -8,6 +32,11 @@ export const getIsLoading = createSelector(
 export const getSelectedProductFilter = createSelector(
   getProductState,
   (state) => state.filter
+);
+
+export const getIsFullScreenProductMode = createSelector(
+  getProductState,
+  (state) => state.fullScreenProductMode
 );
 
 export const getIsEditing = createSelector(
@@ -23,8 +52,12 @@ export const getSelectedProductId = createSelector(
 export const getProductEntities = createSelector(
   getProductState,
   getSelectedProductFilter,
-  (state, filter) => {
-    const products = Object.values(state.entities);
+  getJobs,
+  (state, filter, jobs) => {
+    const products = getAmountOfJobsInsideEveryProduct(
+      Object.values(state.entities),
+      jobs
+    );
     if (filter === 'showAll') {
       const sortedProductsByCreatedDate = sortByCreatedDate(products);
       return sortedProductsByCreatedDate;
@@ -37,8 +70,6 @@ export const getProductEntities = createSelector(
   }
 );
 
-
-
 export const getSelectedProductEntity = createSelector(
   getProductState,
   getProductEntities,
@@ -46,15 +77,8 @@ export const getSelectedProductEntity = createSelector(
     products.filter((product) => product.id === state.selectedProductId)[0]
 );
 
-const sortByCreatedDate = (arrayToSort: any[]) =>
-  arrayToSort.sort((n1, n2) => {
-    if (n1.createdAt > n2.createdAt) {
-      return -1;
-    }
-
-    if (n1.createdAt < n2.createdAt) {
-      return 1;
-    }
-
-    return 0;
-  });
+export const getSelectedProductJobs = createSelector(
+  getSelectedProductId,
+  getJobs,
+  (productId, jobs) => jobs.filter((job) => job.productId === productId)
+);

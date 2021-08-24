@@ -17,12 +17,12 @@
   margin: 0;
 }
 
-.edit-button {
+.buttons-wrapper {
   margin-top: 2rem;
-}
 
-.delete-button {
-  margin-left: 2rem;
+  .delete-button {
+    margin-left: 2rem;
+  }
 }
 
 .add-job-to-product-button {

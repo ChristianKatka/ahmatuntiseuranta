@@ -1,5 +1,4 @@
 import { createReducer, on, Action } from '@ngrx/store';
-import { Product } from 'src/shared/models/product.model';
 import { AuthenticatedActions } from '../../../Auth/store/actions';
 import { ProductActions } from '../actions';
 
@@ -9,6 +8,7 @@ export interface ProductState {
   filter: 'showAll' | 'notStarted' | 'inProgress' | 'ended';
   editing: boolean;
   loading: boolean;
+  fullScreenProductMode: boolean;
 }
 
 export const initialState: ProductState = {
@@ -17,6 +17,7 @@ export const initialState: ProductState = {
   filter: 'showAll',
   editing: false,
   loading: false,
+  fullScreenProductMode: false,
 };
 
 const productReducer = createReducer(
@@ -79,6 +80,14 @@ const productReducer = createReducer(
   on(ProductActions.stopEditing, (state) => ({
     ...state,
     editing: false,
+  })),
+  on(ProductActions.startFullScreenProductMode, (state) => ({
+    ...state,
+    fullScreenProductMode: true,
+  })),
+  on(ProductActions.stopFullScreenProductMode, (state) => ({
+    ...state,
+    fullScreenProductMode: false,
   })),
   on(ProductActions.updateProductSuccess, (state, { resProduct }) => ({
     ...state,

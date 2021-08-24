@@ -1,0 +1,48 @@
+<main
+  [style.padding-top]="'70px'"
+  *ngIf="jobs$ | async as jobs"
+  fxLayoutAlign="center center"
+>
+  <section>
+    <div class="items-wrapper">
+      <div fxLayoutAlign="center center">
+        <img src="../../../../assets/images/logo1.png" alt="Logo" />
+      </div>
+
+      <mat-grid-list cols="3" rowHeight="4:1" style="margin-bottom: 1rem">
+        <mat-grid-tile>Tehdyn työn selite</mat-grid-tile>
+        <mat-grid-tile>Päivämäärä</mat-grid-tile>
+        <mat-grid-tile>kellon aika</mat-grid-tile>
+      </mat-grid-list>
+
+      <mat-grid-list
+        *ngFor="let job of jobs"
+        cols="3"
+        rowHeight="{{ rowHeight }}"
+        style="margin-bottom: 1rem"
+      >
+        <mat-grid-tile>{{ job.jobDescription }}</mat-grid-tile>
+        <mat-grid-tile>{{ job.date | date }}</mat-grid-tile>
+        <mat-grid-tile>{{ job.time }}</mat-grid-tile>
+      </mat-grid-list>
+
+      <mat-grid-list cols="3" rowHeight="8:1" style="margin-bottom: 1rem">
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile
+          ><p style="font-weight: bold">Tunnit yhteensä: 19</p></mat-grid-tile
+        >
+      </mat-grid-list>
+
+      <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+        <mat-button-toggle (click)="changeRowHeight('2:1')">iso</mat-button-toggle>
+        <mat-button-toggle (click)="changeRowHeight('5:1')">Medium</mat-button-toggle>
+        <mat-button-toggle (click)="changeRowHeight('8:1')">Pieni</mat-button-toggle>
+      </mat-button-toggle-group>
+
+      <button (click)="stopFullScreenProductMode.emit()" mat-raised-button>
+        Sulje
+      </button>
+    </div>
+  </section>
+</main>
