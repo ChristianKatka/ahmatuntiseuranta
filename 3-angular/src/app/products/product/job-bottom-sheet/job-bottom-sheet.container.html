@@ -1,0 +1,33 @@
+<header [style.width]="'100%'">
+  <div [style.width]="'100%'" fxLayout="row" fxLayoutAlign="center center">
+    <button
+      mat-icon-button
+      aria-label="Close"
+      (click)="close()"
+      class="top-button"
+    >
+      <mat-icon>maximize</mat-icon>
+    </button>
+  </div>
+  <p>Tehty työ</p>
+</header>
+
+<mat-divider></mat-divider>
+
+<app-job
+  *ngIf="(editing$ | async)  === false; else editingComponent"
+  [job]="selectedJob$ | async"
+  (deleteJob)="deleteJob($event)"
+  (editJob)="editJob($event)"
+></app-job>
+
+<ng-template #editingComponent>
+  <app-job-edit-form
+    [job]="selectedJob$ | async"
+    (editedjob)="editedJobSubmitted($event)"
+  ></app-job-edit-form>
+</ng-template>
+
+<div [style.width]="'100%'" fxLayout="row" fxLayoutAlign="center center">
+  <a (click)="close()" class="cancel-button">Peruuta</a>
+</div>

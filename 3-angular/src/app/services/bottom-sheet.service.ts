@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { AddJobBottomSheetContainerComponent } from '@app/products/product/add-job-bottom-sheet/add-job-bottom-sheet.container';
+import { JobBottomSheetContainerComponent } from '@app/products/product/job-bottom-sheet/job-bottom-sheet.container';
 
 @Injectable({
   providedIn: 'root',
@@ -13,5 +14,9 @@ export class BottomSheetService {
   }
   closeAddJobBottomsheet() {
     this.bottomSheet.dismiss(AddJobBottomSheetContainerComponent)
+  }
+
+  openJobBottomsheet() {
+    this.bottomSheet.open(JobBottomSheetContainerComponent);
   }
 }

@@ -1,0 +1,28 @@
+::ng-deep .mat-bottom-sheet-container {
+  border-radius: 16px 16px 0px 0px;
+}
+
+.top-button {
+  margin-bottom: -16px;
+  mat-icon {
+    color: rgb(144, 143, 143);
+  }
+}
+
+header {
+  p {
+    font-weight: bold;
+  }
+}
+
+.cancel-button {
+  cursor: pointer;
+  color: #ff6700;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+
+mat-divider {
+  margin-bottom: 1rem;
+}

@@ -1,6 +1,6 @@
 import { Actions, ofType, createEffect } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
-import { InitActions, ProductActions, RouterActions } from '../actions';
+import { InitActions, JobActions, ProductActions } from '../actions';
 
 import { mergeMap } from 'rxjs/operators';
 import { AuthenticatedActions } from '@auth/store/actions';
@@ -12,8 +12,8 @@ export class InitEffects {
       ofType(InitActions.loadApplicationStartData),
       mergeMap(() => [
         ProductActions.getAllProducts(),
+        JobActions.getAllJobs(),
         AuthenticatedActions.redirectToAuthenticatedHome(),
-        // InitActions.load2(),
       ])
     )
   );

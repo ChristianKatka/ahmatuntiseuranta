@@ -41,6 +41,11 @@ import { FullCollectionComponent } from './full-collection/full-collection.compo
 import { AddJobBottomSheetContainerComponent } from './products/product/add-job-bottom-sheet/add-job-bottom-sheet.container';
 import { AddJobFormComponent } from './products/product/add-job-bottom-sheet/add-job-form.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { ListJobsContainerComponent } from './products/product/list-jobs/list-jobs.container';
+import { ListJobsComponent } from './products/product/list-jobs/list-jobs.component';
+import { JobBottomSheetContainerComponent } from './products/product/job-bottom-sheet/job-bottom-sheet.container';
+import { JobComponent } from './products/product/job-bottom-sheet/job.component';
+import { JobEditFormComponent } from './products/product/job-bottom-sheet/job-edit-form.component';
 
 const components: any[] = [
   AppComponent,
@@ -57,7 +62,12 @@ const components: any[] = [
   FullCollectionContainerComponent,
   FullCollectionComponent,
   AddJobBottomSheetContainerComponent,
-  AddJobFormComponent
+  AddJobFormComponent,
+  ListJobsContainerComponent,
+  ListJobsComponent,
+  JobBottomSheetContainerComponent,
+  JobComponent,
+  JobEditFormComponent
 ];
 
 @NgModule({
@@ -84,7 +94,7 @@ const components: any[] = [
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
+      registrationStrategy: 'registerWhenStable:30000',
     }),
   ],
   providers: [AuthHTTPService],

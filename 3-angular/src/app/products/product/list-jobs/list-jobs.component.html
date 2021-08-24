@@ -1,0 +1,11 @@
+<main *ngFor="let job of productJobs">
+  <mat-divider></mat-divider>
+  <section (click)="selectJob(job)" fxLayoutAlign="space-between center">
+    <div class="text-wrapper">
+      <p class="sub-heading">{{ job.jobDescription }}</p>
+      <p class="sub-text">{{ job.hoursUsed }} Tuntia käytetty</p>
+    </div>
+
+    <p class="sub-text right-corner-text">{{ job.time }}</p>
+  </section>
+</main>

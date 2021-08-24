@@ -26,8 +26,9 @@
 }
 
 .add-job-to-product-button {
+  z-index: 1;
   background-color: #9ff789;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
   margin: 2rem;

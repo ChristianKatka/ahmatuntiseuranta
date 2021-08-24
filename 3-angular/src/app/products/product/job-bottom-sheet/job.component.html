@@ -1,0 +1,19 @@
+<main *ngIf="job">
+  <p class="sub-heading">Tehdyn työn selite</p>
+  <p class="sub-text">{{ job.jobDescription }}</p>
+  <br />
+  <p class="sub-heading">Päivämäärä</p>
+  <p class="sub-text">{{ job.date | date }}</p>
+  <br />
+  <p class="sub-heading">kellon aika</p>
+  <p class="sub-text">{{ job.time }}</p>
+
+  <div fxLayoutAlign="space-between center">
+    <button mat-icon-button (click)="this.editJob.emit(job)">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <app-delete-job-dialog
+      (delete)="this.deleteJob.emit(job)"
+    ></app-delete-job-dialog>
+  </div>
+</main>

@@ -3,14 +3,20 @@ import { Injectable } from '@angular/core';
 import { JobActions, RouterActions } from '../actions';
 import { JobService } from 'src/app/services/job.service';
 
-import { map, switchMap, catchError, withLatestFrom, tap } from 'rxjs/operators';
+import {
+  map,
+  switchMap,
+  catchError,
+  withLatestFrom,
+  tap,
+} from 'rxjs/operators';
 import { of } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { ProductSelectors } from '../selectors';
+import { BottomSheetService } from '@app/services/bottom-sheet.service';
 
 @Injectable()
 export class JobEffects {
-
   getJobs$ = createEffect(() =>
     this.actions$.pipe(
       ofType(JobActions.getAllJobs),
@@ -26,17 +32,14 @@ export class JobEffects {
     )
   );
 
-
   createJob$ = createEffect(() =>
     this.actions$.pipe(
       ofType(JobActions.createJob),
-      switchMap(({job})=> of(job)),
+      switchMap(({ job }) => of(job)),
       withLatestFrom(this.store.select(ProductSelectors.getSelectedProductId)),
       switchMap((jobAndProductId) =>
         this.jobService.createJob(jobAndProductId[0], jobAndProductId[1]).pipe(
-          map((resJob) =>
-            JobActions.createJobSuccess({ resJob })
-          ),
+          map((resJob) => JobActions.createJobSuccess({ resJob })),
           catchError((error: string) => {
             console.log(error);
             return of(JobActions.createJobFailure({ error }));
@@ -80,9 +83,7 @@ export class JobEffects {
       ofType(JobActions.updateJob),
       switchMap(({ job }) =>
         this.jobService.updateJob(job).pipe(
-          map((resJob) =>
-            JobActions.updateJobSuccess({ resJob })
-          ),
+          map((resJob) => JobActions.updateJobSuccess({ resJob })),
           catchError((error: string) => {
             console.log(error);
             return of(JobActions.updateJobFailure({ error }));
@@ -92,9 +93,28 @@ export class JobEffects {
     )
   );
 
+  selectJobOpenBottomSheet$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(JobActions.selectJob),
+        tap(() => this.bottomSheetService.openJobBottomsheet())
+      ),
+    { dispatch: false }
+  );
+
+  deleteJobSuccesCloseBottomSheet$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(JobActions.deleteJobSuccess),
+        tap(() => this.bottomSheetService.closeAddJobBottomsheet())
+      ),
+    { dispatch: false }
+  );
+
   constructor(
     private actions$: Actions,
     private jobService: JobService,
+    private bottomSheetService: BottomSheetService,
     private store: Store
   ) {}
 }
