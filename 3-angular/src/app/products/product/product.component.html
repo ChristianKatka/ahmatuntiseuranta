@@ -1,42 +1,61 @@
 <main [style.width]="'100%'" fxLayoutAlign="center">
   <div class="mat-elevation-z3 item-card">
-    <div class="inner-item">
-      <p class="sub-heading">Työnantajan nimi</p>
-      <p class="sub-text">{{ product.companyName }}</p>
-      <br />
-      <p class="sub-heading">Työmaa osoite</p>
-      <p class="sub-text">{{ product.address }}</p>
-      <br />
-      <p class="sub-heading">Päivämäärä</p>
-      <p class="sub-text">{{ product.date | date }}</p>
-      <br />
-      <p class="sub-heading">kellon aika</p>
-      <p class="sub-text">{{ product.time }}</p>
-      <br />
-      <p class="sub-heading">Yhteishenkilön tiedot</p>
-      <p class="sub-text">{{ product.companyContactInfo }}</p>
-      <br />
-      <p class="sub-heading">Selite</p>
-      <p class="sub-text">{{ product.description }}</p>
+    <section class="inner-item" fxLayoutAlign="space-between">
+      <div>
+        <p class="sub-heading">Työnantajan nimi</p>
+        <p class="sub-text">{{ product.companyName }}</p>
+        <br />
+        <p class="sub-heading">Työmaa osoite</p>
+        <p class="sub-text">{{ product.address }}</p>
+        <br />
+        <p class="sub-heading">Yhteishenkilön tiedot</p>
+        <p class="sub-text">{{ product.companyContactInfo }}</p>
+        <br />
+        <p class="sub-heading">Selite</p>
+        <p class="sub-text">{{ product.description }}</p>
 
-      <div class="buttons-wrapper" fxLayoutAlign="space-between center">
-        <button mat-raised-button (click)="startFullScreenProductMode.emit()">Avaa isona</button>
-        <div>
-          <button
-            class="edit-button"
-            (click)="startEditing.emit()"
-            mat-raised-button
-          >
-            Muokkaa
+        <div class="buttons-wrapper" fxLayoutAlign="space-between center">
+          <button mat-raised-button (click)="startFullScreenProductMode.emit()">
+            Avaa isona
           </button>
-          <app-delete-product-dialog
-            class="delete-button"
-            [productId]="product.id"
-            (delete)="deleteProduct($event)"
-          ></app-delete-product-dialog>
+          <div>
+            <button
+              class="edit-button"
+              (click)="startEditing.emit()"
+              mat-raised-button
+            >
+              Muokkaa
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+      <div fxLayout="column" fxLayoutAlign="space-between end">
+        <div
+          *ngIf="product.phase === 'notStarted'"
+          fxLayoutAlign="start center"
+        >
+          <span class="not-started">Ei alkanut</span>
+          <mat-icon class="not-started-icon">hourglass_top</mat-icon>
+        </div>
+        <div
+          *ngIf="product.phase === 'inProgress'"
+          fxLayoutAlign="start center"
+        >
+          <span class="in-progress">käynnissä</span>
+          <mat-icon class="in-progress-icon">published_with_changes</mat-icon>
+        </div>
+        <div *ngIf="product.phase === 'ended'" fxLayoutAlign="start center">
+          <span class="ended">Loppunut</span>
+          <mat-icon class="ended-icon">not_interested</mat-icon>
+        </div>
+
+        <app-delete-product-dialog
+          class="delete-button"
+          [productId]="product.id"
+          (delete)="deleteProduct($event)"
+        ></app-delete-product-dialog>
+      </div>
+    </section>
   </div>
 </main>
 

@@ -34,3 +34,25 @@
   margin: 2rem;
   transform: scale(1.5);
 }
+
+.in-progress {
+  color: #4bb543;
+}
+.in-progress-icon {
+  color: #4bb543;
+  margin-left: 0.3rem;
+}
+.not-started {
+  color: #3703d4;
+}
+.not-started-icon {
+  color: #3703d4;
+  margin-left: 0.3rem;
+}
+.ended {
+  color: #b41e1e;
+}
+.ended-icon {
+  color: #b41e1e;
+  margin-left: 0.3rem;
+}
