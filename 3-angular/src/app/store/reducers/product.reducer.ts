@@ -89,17 +89,21 @@ const productReducer = createReducer(
     ...state,
     fullScreenProductMode: false,
   })),
-  on(ProductActions.updateProductSuccess, (state, { resProduct }) => ({
-    ...state,
-    loading: false,
-    editing: false,
-    entities: {
-      ...state.entities,
-      [resProduct.id]: {
-        ...resProduct,
+  on(ProductActions.updateProductSuccess, (state, { resProduct }) => {
+    console.log(resProduct);
+
+    return {
+      ...state,
+      loading: false,
+      editing: false,
+      entities: {
+        ...state.entities,
+        [resProduct.id]: {
+          ...resProduct,
+        },
       },
-    },
-  })),
+    };
+  }),
   on(AuthenticatedActions.signOut, (state) => initialState)
 );
 

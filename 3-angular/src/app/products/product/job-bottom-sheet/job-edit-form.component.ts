@@ -7,7 +7,6 @@ import {
 } from '@angular/core';
 
 import { FormControl, FormGroup } from '@angular/forms';
-import { Product } from 'src/shared/models/product.model';
 
 @Component({
   selector: 'app-job-edit-form',
@@ -19,7 +18,7 @@ export class JobEditFormComponent implements OnChanges {
   job: any;
 
   @Output()
-  editedJob: EventEmitter<Product> = new EventEmitter();
+  editedJob: EventEmitter<any> = new EventEmitter();
 
   dateFormControl = new FormControl();
   timeFormControl = new FormControl();
@@ -35,8 +34,6 @@ export class JobEditFormComponent implements OnChanges {
 
   ngOnChanges() {
     if (this.job) {
-      console.log(this.job);
-
       this.dateFormControl.setValue(this.job.date);
       this.timeFormControl.setValue(this.job.time);
       this.hoursUsedFormControl.setValue(this.job.hoursUsed);
@@ -44,9 +41,8 @@ export class JobEditFormComponent implements OnChanges {
     }
   }
 
-  saveEditForm() {
-    if (this.job) {
-      this.editedJob.next(this.jobEditForm.value);
-    }
+  submit() {
+    const editedJob = { ...this.jobEditForm.value, ...this.job };
+    this.editedJob.emit(editedJob);
   }
 }

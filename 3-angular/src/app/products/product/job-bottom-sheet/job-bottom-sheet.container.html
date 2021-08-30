@@ -18,13 +18,13 @@
   *ngIf="(editing$ | async)  === false; else editingComponent"
   [job]="selectedJob$ | async"
   (deleteJob)="deleteJob($event)"
-  (editJob)="editJob($event)"
+  (startEditingJob)="onStartEditingJob()"
 ></app-job>
 
 <ng-template #editingComponent>
   <app-job-edit-form
     [job]="selectedJob$ | async"
-    (editedjob)="editedJobSubmitted($event)"
+    (editedJob)="editedJobSubmitted($event)"
   ></app-job-edit-form>
 </ng-template>
 

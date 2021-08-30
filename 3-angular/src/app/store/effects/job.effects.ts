@@ -92,6 +92,14 @@ export class JobEffects {
       )
     )
   );
+  updateJobSuccessCloseBottomSheet$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(JobActions.updateJobSuccess),
+        tap(() => this.bottomSheetService.closeJobBottomsheet())
+      ),
+    { dispatch: false }
+  );
 
   selectJobOpenBottomSheet$ = createEffect(
     () =>

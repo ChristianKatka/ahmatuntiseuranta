@@ -46,18 +46,20 @@ export class ProductEditFormComponent implements OnChanges {
 
   ngOnChanges() {
     if (this.product) {
-      console.log(this.product);
       this.companyNameFormControl.setValue(this.product.companyName);
       this.addressFormControl.setValue(this.product.address);
       this.phaseFormControl.setValue(this.product.phase);
-      this.companyContactInfoFormControl.setValue(this.product.companyContactInfo);
+      this.companyContactInfoFormControl.setValue(
+        this.product.companyContactInfo
+      );
       this.descriptionFormControl.setValue(this.product.description);
     }
   }
 
   saveEditForm() {
     if (this.product) {
-      this.editedProduct.next(this.productEditForm.value);
+      const editedProduct = { ...this.product, ...this.productEditForm.value };
+      this.editedProduct.next(editedProduct);
     }
   }
 }

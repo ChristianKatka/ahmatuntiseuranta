@@ -29,13 +29,13 @@ export class JobBottomSheetContainerComponent implements OnInit, OnDestroy {
     this.bottomSheetRef.dismiss();
   }
 
-  editJob(job: any) {
-    console.log('edit job');
+  onStartEditingJob() {
     this.store.dispatch(JobActions.startEditing());
   }
 
   editedJobSubmitted(job: any) {
     console.log(job);
+    this.store.dispatch(JobActions.updateJob({ job }));
   }
 
   deleteJob(job: any) {

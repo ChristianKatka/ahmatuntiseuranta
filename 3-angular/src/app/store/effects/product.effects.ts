@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { ProductActions, RouterActions } from '../actions';
 import { ProductService } from 'src/app/services/product.service';
 
-import { map, switchMap, catchError } from 'rxjs/operators';
+import { map, switchMap, catchError, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 
 @Injectable()

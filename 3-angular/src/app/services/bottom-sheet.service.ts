@@ -13,10 +13,13 @@ export class BottomSheetService {
     this.bottomSheet.open(AddJobBottomSheetContainerComponent);
   }
   closeAddJobBottomsheet() {
-    this.bottomSheet.dismiss(AddJobBottomSheetContainerComponent)
+    this.bottomSheet.dismiss(AddJobBottomSheetContainerComponent);
   }
 
   openJobBottomsheet() {
     this.bottomSheet.open(JobBottomSheetContainerComponent);
+  }
+  closeJobBottomsheet() {
+    this.bottomSheet.dismiss(JobBottomSheetContainerComponent);
   }
 }

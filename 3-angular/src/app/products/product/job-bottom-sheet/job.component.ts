@@ -10,5 +10,5 @@ export class JobComponent {
   @Output()
   deleteJob: EventEmitter<any> = new EventEmitter();
   @Output()
-  editJob: EventEmitter<any> = new EventEmitter();
+  startEditingJob = new EventEmitter();
 }
