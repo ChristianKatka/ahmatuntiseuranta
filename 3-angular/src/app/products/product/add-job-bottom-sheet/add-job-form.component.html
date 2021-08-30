@@ -1,8 +1,11 @@
-<form
-  fxLayout="column"
-  fxLayoutAlign="center stretch"
-  [formGroup]="addJobForm"
->
+<form fxLayout="column" fxLayoutAlign="center stretch" [formGroup]="addJobForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Valitse päivämäärä</mat-label>
+    <input matInput [matDatepicker]="dp3" formControlName="date" />
+    <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+    <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+  </mat-form-field>
+
   <mat-form-field appearance="outline">
     <mat-label>Tehty työ</mat-label>
     <textarea
@@ -15,20 +18,13 @@
     ></textarea>
   </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Valitse päivämäärä</mat-label>
-    <input matInput [matDatepicker]="dp3" formControlName="date" />
-    <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
-    <mat-datepicker #dp3 disabled="false"></mat-datepicker>
-  </mat-form-field>
-
   <mat-form-field appearance="outline">
-    <mat-label>Aika</mat-label>
+    <mat-label>Kellon aika</mat-label>
     <input matInput type="text" formControlName="time" />
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>Työaika</mat-label>
+    <mat-label>Työmaalla käytetty aika</mat-label>
     <input matInput type="text" formControlName="hoursUsed" />
   </mat-form-field>
 

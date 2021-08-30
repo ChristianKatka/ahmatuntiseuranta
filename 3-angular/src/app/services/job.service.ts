@@ -15,7 +15,6 @@ export class JobService {
 
   createJob(job: any, productId: any): Observable<any> {
     const jobWithProductId = { ...job, productId };
-
     return this.authHttp.post(
       `${environment.apiBaseUrl}/jobs`,
       jobWithProductId

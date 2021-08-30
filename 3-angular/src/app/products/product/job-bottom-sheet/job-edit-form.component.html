@@ -13,11 +13,6 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>aika</mat-label>
-      <input matInput type="text" formControlName="time" />
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
       <mat-label>Tehdyn työn selite</mat-label>
       <textarea
         matInput
@@ -28,6 +23,17 @@
         formControlName="jobDescription"
       ></textarea>
     </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Kellon aika</mat-label>
+      <input matInput type="text" formControlName="time" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Työmaalla käytetty aika</mat-label>
+      <input matInput type="text" formControlName="hoursUsed" />
+    </mat-form-field>
+
     <button
       mat-flat-button
       color="primary"

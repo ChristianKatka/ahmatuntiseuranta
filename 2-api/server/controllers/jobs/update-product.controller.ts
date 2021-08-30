@@ -9,18 +9,16 @@ export const updateJob = async (ctx: Context, next: Next) => {
     TableName: JOBS_TABLE,
     Key: { id },
     UpdateExpression:
-      'SET #headLine = :headLine, #description = :description, #price = :price, #isPublic = :isPublic',
+      'SET #date = :date, #hoursUsed = :hoursUsed, #jobDescription = :jobDescription',
     ExpressionAttributeNames: {
-      '#headLine': 'headLine',
-      '#description': 'description',
-      '#price': 'price',
-      '#isPublic': 'isPublic',
+      '#date': 'date',
+      '#hoursUsed': 'hoursUsed',
+      '#jobDescription': 'jobDescription',
     },
     ExpressionAttributeValues: {
-      ':headLine': ctx.request.body.headLine,
-      ':description': ctx.request.body.description,
-      ':price': ctx.request.body.price,
-      ':isPublic': 'false',
+      ':date': ctx.request.body.date,
+      ':hoursUsed': ctx.request.body.hoursUsed,
+      ':jobDescription': ctx.request.body.jobDescription,
     },
     ReturnValues: 'ALL_NEW',
   };

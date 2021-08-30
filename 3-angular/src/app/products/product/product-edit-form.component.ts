@@ -15,6 +15,12 @@ import { Product } from 'src/shared/models/product.model';
   styleUrls: ['./product-edit-form.component.scss'],
 })
 export class ProductEditFormComponent implements OnChanges {
+  phases = [
+    { value: 'notStarted', viewValue: 'Ei alkanut' },
+    { value: 'inProgress', viewValue: 'Käynnissä' },
+    { value: 'ended', viewValue: 'Päättynyt' },
+  ];
+
   @Input()
   product: any;
 
@@ -26,27 +32,25 @@ export class ProductEditFormComponent implements OnChanges {
 
   companyNameFormControl = new FormControl();
   addressFormControl = new FormControl();
-  dateFormControl = new FormControl();
-  timeFormControl = new FormControl();
+  phaseFormControl = new FormControl();
   companyContactInfoFormControl = new FormControl();
   descriptionFormControl = new FormControl();
 
   productEditForm: FormGroup = new FormGroup({
     companyName: this.companyNameFormControl,
+    phase: this.phaseFormControl,
     address: this.addressFormControl,
-    date: this.dateFormControl,
-    time: this.timeFormControl,
     companyContactInfo: this.companyContactInfoFormControl,
     description: this.descriptionFormControl,
   });
 
   ngOnChanges() {
     if (this.product) {
+      console.log(this.product);
       this.companyNameFormControl.setValue(this.product.companyName);
       this.addressFormControl.setValue(this.product.address);
-      this.dateFormControl.setValue(this.product.date);
-      this.timeFormControl.setValue(this.product.time);
-      this.companyContactInfoFormControl.setValue(this.product.companyName);
+      this.phaseFormControl.setValue(this.product.phase);
+      this.companyContactInfoFormControl.setValue(this.product.companyContactInfo);
       this.descriptionFormControl.setValue(this.product.description);
     }
   }

@@ -23,18 +23,23 @@ export class JobEditFormComponent implements OnChanges {
 
   dateFormControl = new FormControl();
   timeFormControl = new FormControl();
+  hoursUsedFormControl = new FormControl();
   jobDescriptionFormControl = new FormControl();
 
   jobEditForm: FormGroup = new FormGroup({
     date: this.dateFormControl,
     time: this.timeFormControl,
+    hoursUsed: this.hoursUsedFormControl,
     jobDescription: this.jobDescriptionFormControl,
   });
 
   ngOnChanges() {
     if (this.job) {
+      console.log(this.job);
+
       this.dateFormControl.setValue(this.job.date);
       this.timeFormControl.setValue(this.job.time);
+      this.hoursUsedFormControl.setValue(this.job.hoursUsed);
       this.jobDescriptionFormControl.setValue(this.job.jobDescription);
     }
   }

@@ -4,23 +4,25 @@ import { PRODUCTS_TABLE } from '../../constants';
 
 export const updateProduct = async (ctx: Context, next: Next) => {
   const id = ctx.params.productId;
-
+  
   const params = {
     TableName: PRODUCTS_TABLE,
     Key: { id },
     UpdateExpression:
-      'SET #headLine = :headLine, #description = :description, #price = :price, #isPublic = :isPublic',
+      'SET #address = :address, #companyContactInfo = :companyContactInfo, #companyName = :companyName, #description = :description, #phase = :phase',
     ExpressionAttributeNames: {
-      '#headLine': 'headLine',
+      '#address': 'address',
+      '#companyContactInfo': 'companyContactInfo',
+      '#companyName': 'companyName',
       '#description': 'description',
-      '#price': 'price',
-      '#isPublic': 'isPublic',
+      '#phase': 'phase',
     },
     ExpressionAttributeValues: {
-      ':headLine': ctx.request.body.headLine,
+      ':address': ctx.request.body.address,
+      ':companyContactInfo': ctx.request.body.companyContactInfo,
+      ':companyName': ctx.request.body.companyName,
       ':description': ctx.request.body.description,
-      ':price': ctx.request.body.price,
-      ':isPublic': 'false',
+      ':phase': ctx.request.body.phase,
     },
     ReturnValues: 'ALL_NEW',
   };
