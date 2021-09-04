@@ -73,17 +73,22 @@ const jobReducer = createReducer(
     ...state,
     editing: false,
   })),
-  on(JobActions.updateJobSuccess, (state, { resJob }) => ({
-    ...state,
-    loading: false,
-    editing: false,
-    entities: {
-      ...state.entities,
-      [resJob.id]: {
-        ...resJob,
+  on(JobActions.updateJobSuccess, (state, { resJob }) => {
+    console.log('api res');
+    console.log(resJob);
+
+    return {
+      ...state,
+      loading: false,
+      editing: false,
+      entities: {
+        ...state.entities,
+        [resJob.id]: {
+          ...resJob,
+        },
       },
-    },
-  })),
+    };
+  }),
   on(AuthenticatedActions.signOut, (state) => initialState)
 );
 

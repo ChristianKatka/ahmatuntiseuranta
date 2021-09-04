@@ -9,16 +9,18 @@ export const updateJob = async (ctx: Context, next: Next) => {
     TableName: JOBS_TABLE,
     Key: { id },
     UpdateExpression:
-      'SET #date = :date, #hoursUsed = :hoursUsed, #jobDescription = :jobDescription',
+      'SET #date = :date, #hoursUsed = :hoursUsed, #jobDescription = :jobDescription, #time = :time',
     ExpressionAttributeNames: {
       '#date': 'date',
       '#hoursUsed': 'hoursUsed',
       '#jobDescription': 'jobDescription',
+      '#time': 'time',
     },
     ExpressionAttributeValues: {
       ':date': ctx.request.body.date,
       ':hoursUsed': ctx.request.body.hoursUsed,
       ':jobDescription': ctx.request.body.jobDescription,
+      ':time': ctx.request.body.time,
     },
     ReturnValues: 'ALL_NEW',
   };
