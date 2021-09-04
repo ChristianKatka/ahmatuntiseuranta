@@ -9,13 +9,14 @@ export const updateProduct = async (ctx: Context, next: Next) => {
     TableName: PRODUCTS_TABLE,
     Key: { id },
     UpdateExpression:
-      'SET #address = :address, #companyContactInfo = :companyContactInfo, #companyName = :companyName, #description = :description, #phase = :phase',
+      'SET #address = :address, #companyContactInfo = :companyContactInfo, #companyName = :companyName, #description = :description, #phase = :phase, #phoneNumber = :phoneNumber',
     ExpressionAttributeNames: {
       '#address': 'address',
       '#companyContactInfo': 'companyContactInfo',
       '#companyName': 'companyName',
       '#description': 'description',
       '#phase': 'phase',
+      '#phoneNumber': 'phoneNumber',
     },
     ExpressionAttributeValues: {
       ':address': ctx.request.body.address,
@@ -23,6 +24,7 @@ export const updateProduct = async (ctx: Context, next: Next) => {
       ':companyName': ctx.request.body.companyName,
       ':description': ctx.request.body.description,
       ':phase': ctx.request.body.phase,
+      ':phoneNumber': ctx.request.body.phoneNumber,
     },
     ReturnValues: 'ALL_NEW',
   };

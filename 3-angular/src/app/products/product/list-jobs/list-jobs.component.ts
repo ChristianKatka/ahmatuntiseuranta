@@ -13,7 +13,6 @@ export class ListJobsComponent {
   onJobSelect: EventEmitter<any> = new EventEmitter();
 
   selectJob(job: any) {
-    console.log(job);
     this.onJobSelect.emit(job);
   }
 }

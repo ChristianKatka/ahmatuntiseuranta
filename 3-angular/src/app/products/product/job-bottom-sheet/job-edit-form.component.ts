@@ -42,7 +42,7 @@ export class JobEditFormComponent implements OnChanges {
   }
 
   submit() {
-    const editedJob = { ...this.jobEditForm.value, ...this.job };
+    const editedJob = {  ...this.job, ...this.jobEditForm.value, };
     this.editedJob.emit(editedJob);
   }
 }

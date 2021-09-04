@@ -74,8 +74,6 @@ const jobReducer = createReducer(
     editing: false,
   })),
   on(JobActions.updateJobSuccess, (state, { resJob }) => {
-    console.log('api res');
-    console.log(resJob);
 
     return {
       ...state,

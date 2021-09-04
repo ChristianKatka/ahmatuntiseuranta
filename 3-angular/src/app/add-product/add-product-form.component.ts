@@ -30,14 +30,13 @@ export class AddProductFormComponent implements OnInit {
   addProductForm: FormGroup = new FormGroup({
     companyName: new FormControl(),
     address: new FormControl(),
+    phoneNumber: new FormControl(),
     phase: new FormControl(),
     companyContactInfo: new FormControl(),
     description: new FormControl(),
   });
 
   submit(): void {
-    console.log(this.addProductForm.value);
-
     this.addProductFormSubmit.emit(this.addProductForm.value);
   }
 

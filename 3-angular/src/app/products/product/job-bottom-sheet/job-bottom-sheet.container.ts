@@ -34,14 +34,10 @@ export class JobBottomSheetContainerComponent implements OnInit, OnDestroy {
   }
 
   editedJobSubmitted(job: any) {
-    console.log(job);
-    console.log('Muokkaus syötetty');
-    
     this.store.dispatch(JobActions.updateJob({ job }));
   }
 
   deleteJob(job: any) {
     this.store.dispatch(JobActions.deleteJob({ jobId: job.id }));
-    console.log('delete job');
   }
 }

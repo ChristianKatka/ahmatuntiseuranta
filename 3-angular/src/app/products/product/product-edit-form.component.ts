@@ -32,6 +32,7 @@ export class ProductEditFormComponent implements OnChanges {
 
   companyNameFormControl = new FormControl();
   addressFormControl = new FormControl();
+  phoneNumberFormControl = new FormControl();
   phaseFormControl = new FormControl();
   companyContactInfoFormControl = new FormControl();
   descriptionFormControl = new FormControl();
@@ -39,6 +40,7 @@ export class ProductEditFormComponent implements OnChanges {
   productEditForm: FormGroup = new FormGroup({
     companyName: this.companyNameFormControl,
     phase: this.phaseFormControl,
+    phoneNumber: this.phoneNumberFormControl,
     address: this.addressFormControl,
     companyContactInfo: this.companyContactInfoFormControl,
     description: this.descriptionFormControl,
@@ -48,6 +50,7 @@ export class ProductEditFormComponent implements OnChanges {
     if (this.product) {
       this.companyNameFormControl.setValue(this.product.companyName);
       this.addressFormControl.setValue(this.product.address);
+      this.phoneNumberFormControl.setValue(this.product.phoneNumber);
       this.phaseFormControl.setValue(this.product.phase);
       this.companyContactInfoFormControl.setValue(
         this.product.companyContactInfo

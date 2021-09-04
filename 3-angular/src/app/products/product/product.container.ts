@@ -57,7 +57,6 @@ export class ProductContainerComponent implements OnInit, OnDestroy {
   }
 
   onOpenBottomSheetAddJobToProduct() {
-    console.log('open bottom sheet');
     this.bottomSheetService.openAddJobBottomsheet();
   }
 
