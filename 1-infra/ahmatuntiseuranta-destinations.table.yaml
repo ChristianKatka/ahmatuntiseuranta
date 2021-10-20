@@ -1,0 +1,38 @@
+
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: DynamoDB table for ahmatuntiseuranta destinations
+
+Resources:
+  DestinationsTable:
+    Type: 'AWS::DynamoDB::Table'
+    Properties:
+      AttributeDefinitions:
+        - AttributeName: 'id'
+          AttributeType: 'S'
+      KeySchema:
+        - AttributeName: 'id'
+          KeyType: 'HASH'
+      BillingMode: PAY_PER_REQUEST
+      TableName: 'ahmatuntiseuranta-destinations'
+      StreamSpecification:
+        StreamViewType: 'NEW_AND_OLD_IMAGES'
+      Tags:
+        - Key: Name
+          Value: 'ahmatuntiseuranta-destinations'
+        - Key: Application
+          Value: 'ahmatuntiseuranta'
+
+Outputs:
+  DestinationsTableArn:
+    Description: destinations Table ARN
+    Value: !GetAtt DestinationsTable.Arn
+    Export:
+      Name: ahmatuntiseuranta-destinations-table-arn
+
+  DestinationsTableStreamArn:
+    Description: Destinations Table stream ARN
+    Value: !GetAtt DestinationsTable.StreamArn
+    Export:
+      Name: ahmatuntiseuranta-destinations-table-stream-arn
+

@@ -1,0 +1,58 @@
+.item-card {
+  width: 90%;
+  background-color: white;
+  border-radius: 6px;
+
+  .inner-item {
+    padding: 1rem;
+  }
+}
+
+.sub-heading {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 0;
+}
+.sub-text {
+  margin: 0;
+}
+
+.buttons-wrapper {
+  margin-top: 2rem;
+
+  .delete-button {
+    margin-left: 2rem;
+  }
+}
+
+.add-job-to-destination-button {
+  z-index: 1;
+  background-color: #9ff789;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 2rem;
+  transform: scale(1.5);
+}
+
+.in-progress {
+  color: #4bb543;
+}
+.in-progress-icon {
+  color: #4bb543;
+  margin-left: 0.3rem;
+}
+.not-started {
+  color: #3703d4;
+}
+.not-started-icon {
+  color: #3703d4;
+  margin-left: 0.3rem;
+}
+.ended {
+  color: #b41e1e;
+}
+.ended-icon {
+  color: #b41e1e;
+  margin-left: 0.3rem;
+}

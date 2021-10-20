@@ -12,7 +12,7 @@ import {
 } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { ProductSelectors } from '../selectors';
+import { DestinationSelectors, ProductSelectors } from '../selectors';
 import { BottomSheetService } from '@app/services/bottom-sheet.service';
 
 @Injectable()
@@ -36,9 +36,9 @@ export class JobEffects {
     this.actions$.pipe(
       ofType(JobActions.createJob),
       switchMap(({ job }) => of(job)),
-      withLatestFrom(this.store.select(ProductSelectors.getSelectedProductId)),
-      switchMap((jobAndProductId) =>
-        this.jobService.createJob(jobAndProductId[0], jobAndProductId[1]).pipe(
+      withLatestFrom(this.store.select(DestinationSelectors.getSelectedDestinationId)),
+      switchMap(([job, destinationId]) =>
+        this.jobService.createJob(job, destinationId).pipe(
           map((resJob) => JobActions.createJobSuccess({ resJob })),
           catchError((error: string) => {
             console.log(error);

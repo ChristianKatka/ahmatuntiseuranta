@@ -13,11 +13,11 @@ export class JobService {
     return this.authHttp.get(`${environment.apiBaseUrl}/jobs`);
   }
 
-  createJob(job: any, productId: any): Observable<any> {
-    const jobWithProductId = { ...job, productId };
+  createJob(job: any, destinationId: any): Observable<any> {
+    const jobWithDestinationId = { ...job, destinationId };    
     return this.authHttp.post(
       `${environment.apiBaseUrl}/jobs`,
-      jobWithProductId
+      jobWithDestinationId
     );
   }
 

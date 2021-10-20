@@ -1,9 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { ProductDraft } from 'src/shared/models/product.model';
-import { AppState } from '../store/reducers';
-import { ProductActions } from '../store/actions';
-import { ProductSelectors } from '../store/selectors';
+import { AppState } from '../../store/reducers';
+import { ProductActions } from '../../store/actions';
+import { ProductSelectors } from '../../store/selectors';
 
 @Component({
   templateUrl: 'add-product.container.html',

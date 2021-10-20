@@ -1,6 +1,9 @@
 <main [style.width]="'100%'" fxLayoutAlign="center">
   <section class="mat-elevation-z3 item-card" *ngIf="jobs$ | async as jobs">
-    <h1>Tehdyt työt</h1>
+    <h1>Kohteeseen tehdyt työt</h1>
     <app-list-jobs [productJobs]="jobs" (onJobSelect)="onJobSelect($event)"></app-list-jobs>
   </section>
 </main>
+
+<h1>hei</h1>
+<pre>{{ jobs$ | async | json }}</pre>

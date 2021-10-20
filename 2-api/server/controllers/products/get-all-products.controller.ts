@@ -3,8 +3,7 @@ import { docClient } from "../../aws";
 import { PRODUCTS_TABLE } from "../../constants";
 
 export const getAllProducts = async (ctx: Context, next: Next) => {
-  console.log('HEi oieke paikka');
-  
+
   const params = {
     TableName: PRODUCTS_TABLE,
   };

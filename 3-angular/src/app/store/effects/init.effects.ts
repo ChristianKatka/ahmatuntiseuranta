@@ -1,6 +1,11 @@
 import { Actions, ofType, createEffect } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
-import { InitActions, JobActions, ProductActions } from '../actions';
+import {
+  DestinationActions,
+  InitActions,
+  JobActions,
+  ProductActions,
+} from '../actions';
 
 import {
   concatMap,
@@ -16,25 +21,6 @@ import { RoutingService } from '@app/services/routing.service';
 
 @Injectable()
 export class InitEffects {
-  // loadApplicationStartData$ = createEffect(() =>
-  //   this.actions$.pipe(
-  //     ofType(InitActions.loadApplicationStartData),
-  //     concatMap(() => [
-  //       ProductActions.getAllProducts(),
-  //       JobActions.getAllJobs(),
-  //       InitActions.loadApplicationStartDataSuccess(),
-  //     ])
-  //   )
-  // );
-
-  // loadApplicationStartDataSuccess$ = createEffect(() =>
-  //   this.actions$.pipe(
-  //     ofType(InitActions.loadApplicationStartDataSuccess),
-  //     delay(2000),
-  //     map(() => AuthenticatedActions.redirectToAuthenticatedHome())
-  //   )
-  // );
-
   loadApplicationStartData$ = createEffect(() =>
     this.actions$.pipe(
       ofType(InitActions.loadApplicationStartData),
@@ -51,17 +37,31 @@ export class InitEffects {
           takeUntil(this.actions$.pipe(ofType(JobActions.getAllJobsFailure))),
           first()
         );
+        const getAllDestinationsSuccess$ = this.actions$.pipe(
+          ofType(DestinationActions.getAllDestinationsSuccess),
+          takeUntil(
+            this.actions$.pipe(
+              ofType(DestinationActions.getAllDestinationsFailure)
+            )
+          ),
+          first()
+        );
 
         const afterSuccesfullyLoadedApplicationWideData$ = forkJoin([
           getAllProductsSuccess$,
           getAllJobsSuccess$,
+          getAllDestinationsSuccess$,
         ])
           .pipe(first())
           .subscribe(() => {
             this.routingService.routeToAuthenticatedHome();
           });
 
-        return [ProductActions.getAllProducts(), JobActions.getAllJobs()];
+        return [
+          ProductActions.getAllProducts(),
+          JobActions.getAllJobs(),
+          DestinationActions.getAllDestinations(),
+        ];
       })
     )
   );

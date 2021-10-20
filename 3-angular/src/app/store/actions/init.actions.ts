@@ -8,8 +8,3 @@ export const loadApplicationStartData = createAction(
 export const loadApplicationStartDataSuccess = createAction(
   '[Init] Load Application Start Data Success'
 );
-
-
-export const stillLoading = createAction(
-  '[Init] Still Loading'
-);

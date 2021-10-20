@@ -1,0 +1,51 @@
+<main [style.width]="'100%'" fxLayoutAlign="center">
+  <div class="mat-elevation-z3 item-card">
+    <section class="inner-item" fxLayoutAlign="space-between">
+      <div>
+        <p class="sub-heading">{{ destination.address }}</p>
+        <p class="sub-text">Kohteen tarkka osoite</p>
+        <br />
+        <div class="buttons-wrapper" fxLayoutAlign="space-between center">
+          <button
+            mat-raised-button
+            (click)="startFullScreenDestinationMode.emit()"
+          >
+            Avaa isona
+          </button>
+          <div>
+            <button
+              class="edit-button"
+              (click)="startEditing.emit()"
+              mat-raised-button
+            >
+              Muokkaa
+            </button>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="column" fxLayoutAlign="space-between end">
+        <app-delete-destination-dialog
+          class="delete-button"
+          [destinationId]="destination.id"
+          (delete)="deleteDestination($event)"
+        ></app-delete-destination-dialog>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- <button
+  mat-icon-button
+  class="add-job-to-destination-button mat-elevation-z1"
+  (click)="addJobToDestination()"
+>
+  <mat-icon>add</mat-icon>
+</button> -->
+
+<button
+  mat-icon-button
+  class="add-job-to-destination-button mat-elevation-z1"
+  (click)="this.openBottomSheetAddJobToDestination.emit()"
+>
+  <mat-icon>add</mat-icon>
+</button>

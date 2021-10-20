@@ -1,0 +1,48 @@
+<app-navigation>
+  <main>
+    <!-- <main
+    [style.padding-top]="'70px'"
+    *ngIf="(fullScreenDestinationMode$ | async)  === false; else fullScreenDestinationComponent"
+  > -->
+
+
+
+
+
+
+    <div fxLayoutAlign="center center">
+      <div [style.width]="'90%'">
+        <h1>Kohde</h1>
+      </div>
+    </div>
+    <div *ngIf="(editing$ | async)  === false; else editingComponent">
+      <app-destination
+        [destination]="destination$ | async"
+        (deleteDestinationSubmitted)="deleteDestination($event)"
+        (startEditing)="startEditing()"
+        (openBottomSheetAddJobToDestination)="onOpenBottomSheetAddJobToDestination()"
+        (openBottomSheetAddDestinationToDestination)="onOpenBottomSheetAddDestinationToDestination()"
+      ></app-destination>
+      <app-list-jobs-container></app-list-jobs-container>
+    </div>
+
+    <ng-template #editingComponent>
+      <app-destination-edit-form
+        [destination]="destination$ | async"
+        (editedDestination)="editedDestinationSubmitted($event)"
+        (stopEditing)="stopEditing()"
+      ></app-destination-edit-form>
+    </ng-template>
+  </main>
+
+
+
+
+
+  
+  <!-- </main> -->
+  <!-- 
+  <ng-template #fullScreenDestinationComponent>
+    <app-full-screen-destination-container (stopFullScreenDestinationMode)="onStopFullScreenDestinationMode()"></app-full-screen-destination-container>
+  </ng-template> -->
+</app-navigation>

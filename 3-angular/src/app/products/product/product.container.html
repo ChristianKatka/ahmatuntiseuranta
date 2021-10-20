@@ -1,7 +1,6 @@
 <app-navigation>
   <main
     [style.padding-top]="'70px'"
-    *ngIf="(fullScreenProductMode$ | async)  === false; else fullScreenProductComponent"
   >
     <div fxLayoutAlign="center center">
       <div [style.width]="'90%'">
@@ -13,11 +12,17 @@
         [product]="product$ | async"
         (deleteProductSubmitted)="deleteProduct($event)"
         (startEditing)="startEditing()"
-        (openBottomSheetAddJobToProduct)="onOpenBottomSheetAddJobToProduct()"
-        (startFullScreenProductMode)="onStartFullScreenProductMode()"
       ></app-product>
-
-      <app-list-jobs-container></app-list-jobs-container>
+      <app-list-destinations-container></app-list-destinations-container>
+      <div fxLayoutAlign="center center">
+        <button
+          class="add-destination-to-product-button"
+          mat-raised-button
+          (click)="onOpenBottomSheetAddDestinationToProduct()"
+        >
+          Lisää kohde työmaalle
+        </button>
+      </div>
     </div>
 
     <ng-template #editingComponent>
@@ -29,8 +34,4 @@
     </ng-template>
   </main>
 
-  <ng-template #fullScreenProductComponent>
-    <app-full-screen-product-container (stopFullScreenProductMode)="onStopFullScreenProductMode()"></app-full-screen-product-container>
-  </ng-template>
-  
 </app-navigation>

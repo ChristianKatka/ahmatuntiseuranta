@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ServiceWorkerModule } from '@angular/service-worker';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,60 +17,13 @@ import { RouterStateSerializer } from './store/router-state.serializer';
 import { reducers } from './store/reducers';
 import { effects } from './store/effects';
 import { environment } from '../environments/environment';
-
 import { MaterialModule } from '../material.module';
 import { SharedModule } from 'src/shared/shared.module';
 import { AuthModule } from '@auth/auth.module';
-
-import { HomeContainerComponent } from './home/home.container';
-import { AppInitializationContainerComponent } from './app-initialization/app-initialization.container';
-
-import {
-  ProductComponent,
-  ProductsComponent,
-  ProductsContainerComponent,
-  ProductContainerComponent,
-  ProductEditFormComponent,
-} from './products';
-import {
-  AddProductComponent,
-  AddProductContainerComponent,
-  AddProductFormComponent,
-} from './add-product';
-import { AddJobBottomSheetContainerComponent } from './products/product/add-job-bottom-sheet/add-job-bottom-sheet.container';
-import { AddJobFormComponent } from './products/product/add-job-bottom-sheet/add-job-form.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { ListJobsContainerComponent } from './products/product/list-jobs/list-jobs.container';
-import { ListJobsComponent } from './products/product/list-jobs/list-jobs.component';
-import { JobBottomSheetContainerComponent } from './products/product/job-bottom-sheet/job-bottom-sheet.container';
-import { JobComponent } from './products/product/job-bottom-sheet/job.component';
-import { JobEditFormComponent } from './products/product/job-bottom-sheet/job-edit-form.component';
-import { FullScreenProductContainerComponent } from './products/product/full-screen-product/full-screen-product.container';
-
-const components: any[] = [
-  AppComponent,
-  HomeContainerComponent,
-  ProductComponent,
-  ProductsComponent,
-  ProductsContainerComponent,
-  ProductContainerComponent,
-  AppInitializationContainerComponent,
-  AddProductComponent,
-  AddProductContainerComponent,
-  AddProductFormComponent,
-  ProductEditFormComponent,
-  AddJobBottomSheetContainerComponent,
-  AddJobFormComponent,
-  ListJobsContainerComponent,
-  ListJobsComponent,
-  JobBottomSheetContainerComponent,
-  JobComponent,
-  JobEditFormComponent,
-  FullScreenProductContainerComponent
-];
+import { components } from '.';
 
 @NgModule({
-  declarations: [...components],
+  declarations: [AppComponent, ...components],
   imports: [
     BrowserModule,
     AppRoutingModule,

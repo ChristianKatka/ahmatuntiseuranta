@@ -1,0 +1,15 @@
+<main *ngFor="let destination of productDestinations">
+  <mat-divider></mat-divider>
+  <section
+    (click)="selectDestination(destination)"
+    [routerLink]="[destination.id]"
+    fxLayoutAlign="space-between center"
+  >
+    <div class="text-wrapper">
+      <p class="sub-heading">{{ destination.address }}</p>
+      <p class="sub-text">Töiden määrä tässä kohteessa</p>
+    </div>
+
+    <p class="sub-text right-corner-text">{{ destination.amountOfJobs }}</p>
+  </section>
+</main>

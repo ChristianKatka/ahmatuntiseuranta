@@ -3,8 +3,9 @@ import { AuthenticatedGuard } from '@auth/guards';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeContainerComponent } from './home/home.container';
 import { AppInitializationContainerComponent } from './app-initialization/app-initialization.container';
-import { ProductContainerComponent } from './products';
-import { AddProductContainerComponent } from './add-product';
+import { ProductContainerComponent } from './products/product/product.container';
+import { AddProductContainerComponent } from './products/add-product/add-product.container';
+import { DestinationContainerComponent } from './destinations/destination/destination.container';
 
 const routes: Routes = [
   {
@@ -27,6 +28,11 @@ const routes: Routes = [
     path: 'sales/:productId',
     canActivate: [AuthenticatedGuard],
     component: ProductContainerComponent,
+  },
+  {
+    path: 'sales/:productId/:destinationId',
+    canActivate: [AuthenticatedGuard],
+    component: DestinationContainerComponent,
   },
   {
     path: 'add-product',

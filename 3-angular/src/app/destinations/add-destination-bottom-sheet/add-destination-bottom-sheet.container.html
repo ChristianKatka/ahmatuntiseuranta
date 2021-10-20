@@ -1,0 +1,21 @@
+<header [style.width]="'100%'">
+  <div [style.width]="'100%'" fxLayout="row" fxLayoutAlign="center center">
+    <button
+      mat-icon-button
+      aria-label="Close"
+      (click)="close()"
+      class="top-button"
+    >
+      <mat-icon>maximize</mat-icon>
+    </button>
+  </div>
+  <p>Luo uusi kohde työmaalle</p>
+</header>
+
+<main>
+  <app-add-destination-form (addDestinationFormSubmit)="addDestinationToProduct($event)"></app-add-destination-form>
+
+  <div [style.width]="'100%'" fxLayout="row" fxLayoutAlign="center center">
+    <a (click)="close()" class="cancel-button">Peruuta</a>
+  </div>
+</main>

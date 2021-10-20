@@ -28,6 +28,7 @@ import {
 import { AddFilesComponent } from './components/add-files/add-files.component';
 import { FileSelectDirective } from './components/add-files/file-select.directive';
 import { DeleteJobDialogComponent, DeleteJobDialogConfirmComponent } from './components/delete-job-dialog/delete-job-dialog.component';
+import { DeleteDestinationDialogComponent, DeleteDestinationDialogConfirmComponent } from './components/delete-destination-dialog/delete-destination-dialog.component';
 
 const components = [
   AlertComponent,
@@ -47,7 +48,9 @@ const components = [
   AddFilesComponent,
   FileSelectDirective,
   DeleteJobDialogComponent,
-  DeleteJobDialogConfirmComponent
+  DeleteJobDialogConfirmComponent,
+  DeleteDestinationDialogComponent,
+  DeleteDestinationDialogConfirmComponent
 ];
 
 const pipes = [BooleanPipe, IconPipe];

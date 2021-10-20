@@ -1,0 +1,31 @@
+<main fxLayout="column" fxLayoutAlign="center center" [style.width]="'100%'">
+  <div [style.width]="'90%'" class="mat-elevation-z3 edit-destination">
+    <div class="inner-item">
+      <section fxLayoutAlign="center center">
+        <form
+          fxLayout="column"
+          fxLayoutAlign="center stretch"
+          [formGroup]="destinationEditForm"
+        >
+          <mat-form-field appearance="outline">
+            <mat-label>Kohteen tarkka osoite</mat-label>
+            <input matInput type="text" formControlName="address" />
+          </mat-form-field>
+
+          <button
+            mat-flat-button
+            color="primary"
+            type="submit"
+            [disabled]="this.destinationEditForm.invalid"
+            (click)="submit()"
+          >
+            Tallenna
+          </button>
+          <button style="margin-top: 1rem;" (click)="stopEditing.emit()" mat-raised-button>
+            Peruuta
+          </button>
+        </form>
+      </section>
+    </div>
+  </div>
+</main>

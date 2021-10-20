@@ -19,9 +19,6 @@
         <p class="sub-text">{{ product.description }}</p>
 
         <div class="buttons-wrapper" fxLayoutAlign="space-between center">
-          <button mat-raised-button (click)="startFullScreenProductMode.emit()">
-            Avaa isona
-          </button>
           <div>
             <button
               class="edit-button"
@@ -62,11 +59,3 @@
     </section>
   </div>
 </main>
-
-<button
-  mat-icon-button
-  class="add-job-to-product-button mat-elevation-z1"
-  (click)="addJobToProduct()"
->
-  <mat-icon>add</mat-icon>
-</button>

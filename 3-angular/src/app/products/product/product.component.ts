@@ -23,21 +23,11 @@ export class ProductComponent implements OnInit {
   @Output()
   startEditing = new EventEmitter();
 
-  @Output()
-  startFullScreenProductMode = new EventEmitter();
-
-  @Output()
-  openBottomSheetAddJobToProduct = new EventEmitter();
-
   constructor() {}
 
   ngOnInit(): void {}
 
   deleteProduct(productId: string) {
     this.deleteProductSubmitted.next(productId);
-  }
-
-  addJobToProduct() {
-    this.openBottomSheetAddJobToProduct.emit();
   }
 }

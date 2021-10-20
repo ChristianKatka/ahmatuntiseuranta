@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { JobActions } from '@app/store/actions';
 import { AppState } from '@app/store/reducers';
-import { ProductSelectors } from '@app/store/selectors';
+import { DestinationSelectors } from '@app/store/selectors';
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -10,7 +10,7 @@ import { Store } from '@ngrx/store';
   styleUrls: ['list-jobs.container.scss'],
 })
 export class ListJobsContainerComponent {
-  jobs$ = this.store.select(ProductSelectors.getSelectedProductJobs);
+  jobs$ = this.store.select(DestinationSelectors.getSelectedDestinationJobs);
   constructor(private store: Store<AppState>) {}
 
   onJobSelect(job: any) {

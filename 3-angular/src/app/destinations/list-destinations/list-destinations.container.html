@@ -1,0 +1,8 @@
+<main [style.width]="'100%'" fxLayoutAlign="center">
+  <section class="mat-elevation-z3 item-card" *ngIf="destinations$ | async as destinations">
+    <h1>DESTINATIONS</h1>
+    <app-list-destinations [productDestinations]="destinations" (onDestinationSelect)="onDestinationSelect($event)"></app-list-destinations>
+  </section>
+</main>
+
+

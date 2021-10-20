@@ -19,9 +19,6 @@ import { BottomSheetService } from '@app/services/bottom-sheet.service';
 export class ProductContainerComponent implements OnInit, OnDestroy {
   product$ = this.store.select(ProductSelectors.getSelectedProductEntity);
   editing$ = this.store.select(ProductSelectors.getIsEditing);
-  fullScreenProductMode$ = this.store.select(
-    ProductSelectors.getIsFullScreenProductMode
-  );
 
   constructor(
     private store: Store<AppState>,
@@ -60,11 +57,8 @@ export class ProductContainerComponent implements OnInit, OnDestroy {
     this.bottomSheetService.openAddJobBottomsheet();
   }
 
-  onStartFullScreenProductMode() {
-    this.store.dispatch(ProductActions.startFullScreenProductMode());
-  }
+  onOpenBottomSheetAddDestinationToProduct() {
+    this.bottomSheetService.openAddDestinationBottomsheet();
 
-  onStopFullScreenProductMode() {
-    this.store.dispatch(ProductActions.stopFullScreenProductMode());
   }
 }

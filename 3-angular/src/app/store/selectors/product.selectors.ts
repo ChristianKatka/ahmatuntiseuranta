@@ -1,11 +1,16 @@
 import { createSelector } from '@ngrx/store';
 import { getProductState } from '../reducers';
-import { getJobs } from './job.selectors';
+import { getDestinations } from './destination.selectors';
 
-const getAmountOfJobsInsideEveryProduct = (products: any[], jobs: any[]) =>
+const getAmountOfDestinationsInsideEveryProduct = (
+  products: any[],
+  destinations: any[]
+) =>
   products.map((product: any) => {
-    const amountOfJobs = jobs.filter((job) => job.productId === product.id);
-    return { ...product, amountOfJobs: amountOfJobs.length };
+    const amountOfDestinations = destinations.filter(
+      (destination) => destination.productId === product.id
+    );
+    return { ...product, amountOfDestinations: amountOfDestinations.length };
   });
 
 const sortByCreatedDate = (arrayToSort: any[]) =>
@@ -52,11 +57,11 @@ export const getSelectedProductId = createSelector(
 export const getProductEntities = createSelector(
   getProductState,
   getSelectedProductFilter,
-  getJobs,
-  (state, filter, jobs) => {
-    const products = getAmountOfJobsInsideEveryProduct(
+  getDestinations,
+  (state, filter, destinations) => {
+    const products = getAmountOfDestinationsInsideEveryProduct(
       Object.values(state.entities),
-      jobs
+      destinations
     );
     if (filter === 'showAll') {
       const sortedProductsByCreatedDate = sortByCreatedDate(products);
@@ -77,8 +82,12 @@ export const getSelectedProductEntity = createSelector(
     products.filter((product) => product.id === state.selectedProductId)[0]
 );
 
-export const getSelectedProductJobs = createSelector(
+export const getSelectedProductDestinations = createSelector(
   getSelectedProductId,
-  getJobs,
-  (productId, jobs) => jobs.filter((job) => job.productId === productId)
+  getDestinations,
+  (productId, destinations) => {
+    return destinations.filter(
+      (destination) => destination.productId === productId
+    );
+  }
 );
