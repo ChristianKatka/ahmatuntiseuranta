@@ -1,7 +1,7 @@
 <form fxLayout="column" fxLayoutAlign="center stretch" [formGroup]="addDestinationForm">
 
   <mat-form-field appearance="outline">
-    <mat-label>Kohteen tarkka osoite</mat-label>
+    <mat-label>Asunnon tarkka osoite</mat-label>
     <input matInput type="text" formControlName="address" />
   </mat-form-field>
 
@@ -13,7 +13,7 @@
     [disabled]="this.addDestinationForm.invalid"
     (click)="submit()"
   >
-    Tallenna
+    Lisää
   </button>
 
   <button
