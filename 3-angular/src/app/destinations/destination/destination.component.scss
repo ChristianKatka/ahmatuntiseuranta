@@ -56,3 +56,14 @@
   color: #b41e1e;
   margin-left: 0.3rem;
 }
+
+.invoice-wrapper {
+  margin-top: 5px;
+
+  .not-invoiced {
+    color: #db1a1a;
+  }
+  .invoiced {
+    color: #00a300;
+  }
+}

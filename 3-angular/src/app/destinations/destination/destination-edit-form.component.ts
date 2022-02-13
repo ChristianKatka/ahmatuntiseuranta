@@ -24,14 +24,17 @@ export class DestinationEditFormComponent implements OnChanges {
   stopEditing = new EventEmitter();
 
   addressFormControl = new FormControl();
+  invoicedFormControl = new FormControl();
 
   destinationEditForm: FormGroup = new FormGroup({
     address: this.addressFormControl,
+    invoiced: this.invoicedFormControl,
   });
 
   ngOnChanges() {
     if (this.destination) {
       this.addressFormControl.setValue(this.destination.address);
+      this.invoicedFormControl.setValue(this.destination.invoiced);
     }
   }
 
@@ -41,6 +44,7 @@ export class DestinationEditFormComponent implements OnChanges {
         ...this.destination,
         ...this.destinationEditForm.value,
       };
+
       this.editedDestination.next(editedDestination);
     }
   }

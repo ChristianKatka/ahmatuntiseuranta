@@ -6,6 +6,8 @@
       <p class="sub-text">{{ job.hoursUsed }} Tuntia käytetty</p>
     </div>
 
-    <p class="sub-text right-corner-text">{{ job.time }}</p>
+    <p class="sub-text right-corner-text">
+      {{ job.date | date: 'M/d/yy' }}
+    </p>
   </section>
 </main>

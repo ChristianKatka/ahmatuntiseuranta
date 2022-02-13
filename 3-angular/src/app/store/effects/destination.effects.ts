@@ -92,6 +92,7 @@ export class DestinationEffects {
       ofType(DestinationActions.updateDestination),
       switchMap(({ destination }) =>
         this.destinationService.updateDestination(destination).pipe(
+          tap((x) => console.log(x)),
           map((resDestination) =>
             DestinationActions.updateDestinationSuccess({ resDestination })
           ),

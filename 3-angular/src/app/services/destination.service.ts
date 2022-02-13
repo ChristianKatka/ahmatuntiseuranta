@@ -22,10 +22,17 @@ export class DestinationService {
   }
 
   updateDestination(destination: any): Observable<any> {
-    return this.authHttp.put(`${environment.apiBaseUrl}/destinations/${destination.id}`, destination);
+    console.log(destination);
+
+    return this.authHttp.put(
+      `${environment.apiBaseUrl}/destinations/${destination.id}`,
+      destination
+    );
   }
 
   deleteDestination(destinationId: string): Observable<{ id: string }> {
-    return this.authHttp.delete(`${environment.apiBaseUrl}/destinations/${destinationId}`);
+    return this.authHttp.delete(
+      `${environment.apiBaseUrl}/destinations/${destinationId}`
+    );
   }
 }

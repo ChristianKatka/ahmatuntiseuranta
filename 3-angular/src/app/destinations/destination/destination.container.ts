@@ -17,7 +17,9 @@ import { BottomSheetService } from '@app/services/bottom-sheet.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DestinationContainerComponent implements OnInit, OnDestroy {
-  destination$ = this.store.select(DestinationSelectors.getSelectedDestinationEntity);
+  destination$ = this.store.select(
+    DestinationSelectors.getSelectedDestinationEntity
+  );
   editing$ = this.store.select(DestinationSelectors.getIsEditing);
   // fullScreenDestinationMode$ = this.store.select(
   //   DestinationSelectors.getIsFullScreenDestinationMode
@@ -31,7 +33,9 @@ export class DestinationContainerComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     const destinationId = this.route.snapshot.paramMap.get('destinationId');
     if (destinationId) {
-      this.store.dispatch(DestinationActions.selectDestination({ destinationId }));
+      this.store.dispatch(
+        DestinationActions.selectDestination({ destinationId })
+      );
     }
   }
   ngOnDestroy() {
@@ -41,7 +45,9 @@ export class DestinationContainerComponent implements OnInit, OnDestroy {
 
   deleteDestination(destinationId: string) {
     if (destinationId) {
-      this.store.dispatch(DestinationActions.deleteDestination({ destinationId }));
+      this.store.dispatch(
+        DestinationActions.deleteDestination({ destinationId })
+      );
     }
   }
 
@@ -62,7 +68,6 @@ export class DestinationContainerComponent implements OnInit, OnDestroy {
 
   onOpenBottomSheetAddDestinationToDestination() {
     this.bottomSheetService.openAddDestinationBottomsheet();
-
   }
 
   // onStartFullScreenDestinationMode() {

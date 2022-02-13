@@ -8,6 +8,23 @@
     <div class="text-wrapper">
       <p class="sub-heading">{{ destination.address }}</p>
       <p class="sub-text">Töiden määrä tässä kohteessa</p>
+
+      <div
+        *ngIf="destination.invoiced"
+        class="invoice-wrapper"
+        fxLayoutAlign="start center"
+      >
+        <span>Laskutettu</span>
+        <mat-icon class="invoiced">request_quote</mat-icon>
+      </div>
+      <div
+        *ngIf="!destination.invoiced"
+        class="invoice-wrapper"
+        fxLayoutAlign="start center"
+      >
+        <span>Ei ole laskutettu</span>
+        <mat-icon class="not-invoiced">request_quote</mat-icon>
+      </div>
     </div>
 
     <p class="sub-text right-corner-text">{{ destination.amountOfJobs }}</p>

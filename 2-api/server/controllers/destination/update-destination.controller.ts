@@ -8,12 +8,10 @@ export const updateDestination = async (ctx: Context, next: Next) => {
   const params = {
     TableName: DESTINATION_TABLE,
     Key: { id },
-    UpdateExpression: 'SET #address = :address',
-    ExpressionAttributeNames: {
-      '#address': 'address',
-    },
+    UpdateExpression: 'SET address = :address, invoiced = :invoiced',
     ExpressionAttributeValues: {
       ':address': ctx.request.body.address,
+      ':invoiced': ctx.request.body.invoiced,
     },
     ReturnValues: 'ALL_NEW',
   };

@@ -21,7 +21,11 @@ export class AddDestinationBottomSheetContainerComponent implements OnInit {
   }
 
   addDestinationToProduct(destination: any) {
-    this.store.dispatch(DestinationActions.createDestination({ destination }));
+    this.store.dispatch(
+      DestinationActions.createDestination({
+        destination: { ...destination, invoiced: false },
+      })
+    );
     this.close();
   }
 }

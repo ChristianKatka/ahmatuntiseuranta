@@ -22,8 +22,8 @@ Resources:
           - DELETE
         MaxAge: 60
       DefaultRouteSettings:
-        ThrottlingBurstLimit: 2
-        ThrottlingRateLimit: 2
+        ThrottlingBurstLimit: 20
+        ThrottlingRateLimit: 20
       # Domain:
       #   DomainName: api.ahmappi.com
       #   CertificateArn: arn:aws:acm:us-east-1:177244120069:certificate/4a5213a3-040a-4019-9750-5626de57e7bc
